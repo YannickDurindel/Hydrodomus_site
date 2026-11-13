@@ -4,18 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TRN-10 Refuel Node · Hydrodomus</title>
-  <meta name="description" content="TRN-10 Refuel Node: a towable station that makes hydrogen on site from water and power and fills drone tanks at 350 bar.">
+  <meta name="description" content="TRN-10 Refuel Node: a towable station that makes hydrogen on site from water and power and refuels drones at 350 bar.">
   <meta property="og:title" content="TRN-10 Refuel Node · Hydrodomus">
-  <meta property="og:description" content="Water and power in, 350 bar hydrogen out. A towable refuelling station for hydrogen drones.">
+  <meta property="og:description" content="Hydrogen for your drones, made where they land. Water and power in, 350 bar hydrogen out.">
   <meta property="og:image" content="https://hydrodomus.com/assets/images/trn10-og.jpg">
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/images/logo-removebg.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap">
+  <link rel="preload" as="image" href="assets/images/trn10-hero-1400.webp" imagesrcset="assets/images/trn10-hero-800.webp 800w, assets/images/trn10-hero-1400.webp 1400w, assets/images/trn10-hero-2400.webp 2400w" imagesizes="100vw">
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body class="pr-page">
+<body class="pv2">
 
 <nav class="nav" id="main-nav">
   <a href="./" class="nav-logo">
@@ -44,100 +45,102 @@
   </div>
 </div>
 
-<!-- HERO -->
-<header class="pr-hero">
-  <div class="container pr-hero-grid">
-    <div class="pr-hero-text">
-      <span class="pr-tag" data-i18n="pr.tag">Produit</span>
-      <h1 class="pr-title" data-i18n="pr.title">TRN-10 Refuel Node</h1>
-      <p class="pr-sub" data-i18n="pr.sub">Water and power in, 350 bar hydrogen out.</p>
-      <div class="pr-actions">
-        <a class="btn btn-white" href="contact?subject=pilot" data-i18n="pr.cta1">Discuter d’un pilote</a>
-        <a class="pr-link" href="#use" data-i18n="pr.cta2">Voir l'utilisation</a>
-      </div>
+<!-- HERO: full-bleed photo -->
+<header class="pv2-hero">
+  <picture class="pv2-hero-media">
+    <source type="image/webp" srcset="assets/images/trn10-hero-800.webp 800w, assets/images/trn10-hero-1400.webp 1400w, assets/images/trn10-hero-2400.webp 2400w" sizes="100vw">
+    <img src="assets/images/trn10-hero-1400.jpg" srcset="assets/images/trn10-hero-800.jpg 800w, assets/images/trn10-hero-1400.jpg 1400w, assets/images/trn10-hero-2400.jpg 2400w" sizes="100vw" alt="The TRN-10 Refuel Node, a closed trailer-mounted hydrogen refuelling unit, on a gravel airfield at sunrise with a drone in the background" width="2400" height="1340" fetchpriority="high">
+  </picture>
+  <div class="pv2-hero-shade" aria-hidden="true"></div>
+  <div class="container pv2-hero-inner">
+    <span class="pv2-eyebrow" data-i18n="pr.eyebrow">TRN-10 Refuel Node</span>
+    <h1 class="pv2-title" data-i18n="pr.title"></h1>
+    <p class="pv2-sub" data-i18n="pr.sub"></p>
+    <div class="pv2-actions">
+      <a class="btn pv2-btn" href="contact?subject=pilot" data-i18n="pr.cta1">Discuter d’un pilote</a>
+      <a class="pv2-link" href="#use" data-i18n="pr.cta2">Voir l'utilisation</a>
     </div>
-    <figure class="pr-render">
-      <img class="pr-photo" src="assets/images/trn10-hero.jpg" alt="The TRN-10 Refuel Node, a closed trailer-mounted hydrogen refuelling unit, parked on a gravel airfield at sunrise with a drone in the background" width="2000" height="1116" fetchpriority="high">
-      <figcaption data-i18n="pr.stage">Rendering.</figcaption>
-    </figure>
   </div>
+  <p class="pv2-caption" data-i18n="pr.stage"></p>
 </header>
 
-<!-- HOW TO USE -->
-<section class="pr-section pr-use" id="use">
+<!-- KEY NUMBERS -->
+<section class="pv2-stats" aria-label="Key figures">
   <div class="container">
-    <span class="pr-kicker" data-i18n="pr.use.tag">How to use it</span>
-    <h2 class="pr-h2" data-i18n="pr.use.title"></h2>
-    <ol class="pr-use-grid">
+    <dl class="pv2-stats-grid">
+      <div><dt data-i18n="pr.k1.v"></dt><dd data-i18n="pr.k1.l"></dd></div>
+      <div><dt data-i18n="pr.k2.v"></dt><dd data-i18n="pr.k2.l"></dd></div>
+      <div><dt data-i18n="pr.k3.v"></dt><dd data-i18n="pr.k3.l"></dd></div>
+      <div><dt data-i18n="pr.k4.v"></dt><dd data-i18n="pr.k4.l"></dd></div>
+    </dl>
+    <p class="pv2-stats-note" data-i18n="pr.k.note"></p>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="pv2-section pv2-for">
+  <div class="container pv2-for-grid">
+    <h2 class="pv2-h2" data-i18n="pr.for.title"></h2>
+    <ul class="pv2-for-list">
+      <li class="reveal"><h3 data-i18n="pr.for1.t"></h3><p data-i18n="pr.for1.p"></p></li>
+      <li class="reveal"><h3 data-i18n="pr.for2.t"></h3><p data-i18n="pr.for2.p"></p></li>
+      <li class="reveal"><h3 data-i18n="pr.for3.t"></h3><p data-i18n="pr.for3.p"></p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- HOW TO USE -->
+<section class="pv2-section pv2-use" id="use">
+  <div class="container">
+    <span class="pv2-kicker" data-i18n="pr.use.tag">How to use it</span>
+    <h2 class="pv2-h2" data-i18n="pr.use.title"></h2>
+    <ol class="pv2-steps">
       <li class="reveal">
-        <figure><img src="assets/images/use-1-park.jpg" alt="An operator lowers the rear stabiliser of the unhitched unit while the towing pickup drives away" width="1200" height="896" loading="lazy"></figure>
-        <span class="pr-step-n">01</span>
+        <span class="pv2-step-n">1</span>
+        <figure><picture><source type="image/webp" srcset="assets/images/use-1-park.webp"><img src="assets/images/use-1-park.jpg" alt="An operator lowers the rear stabiliser of the unhitched unit while the towing pickup drives away" width="960" height="720" loading="lazy"></picture></figure>
         <h3 data-i18n="pr.u1.t"></h3>
         <p data-i18n="pr.u1.p"></p>
       </li>
       <li class="reveal">
-        <figure><img src="assets/images/use-2-connect.jpg" alt="An operator connects a water hose and a power cable to the unit, with a water tank and a generator nearby" width="1200" height="896" loading="lazy"></figure>
-        <span class="pr-step-n">02</span>
+        <span class="pv2-step-n">2</span>
+        <figure><picture><source type="image/webp" srcset="assets/images/use-2-connect.webp"><img src="assets/images/use-2-connect.jpg" alt="An operator connects a water hose and a power cable to inlets on the side of the unit" width="960" height="720" loading="lazy"></picture></figure>
         <h3 data-i18n="pr.u2.t"></h3>
         <p data-i18n="pr.u2.p"></p>
       </li>
       <li class="reveal">
-        <figure><img src="assets/images/use-3-start.jpg" alt="An operator presses the green start button on the outside control panel of the unit" width="1200" height="896" loading="lazy"></figure>
-        <span class="pr-step-n">03</span>
+        <span class="pv2-step-n">3</span>
+        <figure><picture><source type="image/webp" srcset="assets/images/use-3-start.webp"><img src="assets/images/use-3-start.jpg" alt="An operator presses the green start button on the outside control panel" width="960" height="720" loading="lazy"></picture></figure>
         <h3 data-i18n="pr.u3.t"></h3>
         <p data-i18n="pr.u3.p"></p>
       </li>
       <li class="reveal">
-        <figure><img src="assets/images/use-4-refuel.jpg" alt="An operator connects the refuelling hose from the unit to the tank port of a fixed-wing drone" width="1200" height="896" loading="lazy"></figure>
-        <span class="pr-step-n">04</span>
+        <span class="pv2-step-n">4</span>
+        <figure><picture><source type="image/webp" srcset="assets/images/use-4-refuel.webp"><img src="assets/images/use-4-refuel.jpg" alt="An operator connects the refuelling nozzle to the tank port of a fixed-wing drone" width="960" height="720" loading="lazy"></picture></figure>
         <h3 data-i18n="pr.u4.t"></h3>
         <p data-i18n="pr.u4.p"></p>
       </li>
     </ol>
-    <p class="pr-note pr-use-note" data-i18n="pr.use.note"></p>
+    <p class="pv2-note" data-i18n="pr.use.note"></p>
   </div>
 </section>
 
-<!-- FIGURES -->
-<section class="pr-section pr-figs">
-  <div class="container pr-figs-grid">
-    <div>
-      <span class="pr-kicker" data-i18n="pr.fig.tag">Chiffres clés</span>
-      <h2 class="pr-h2" data-i18n="pr.fig.title"></h2>
-      <p class="pr-note" data-i18n="pr.fig.note"></p>
-    </div>
-    <dl class="pr-figures">
-      <div class="reveal"><dt data-i18n="pr.fig1.v"></dt><dd data-i18n="pr.fig1.l"></dd></div>
-      <div class="reveal"><dt data-i18n="pr.fig2.v"></dt><dd data-i18n="pr.fig2.l"></dd></div>
-      <div class="reveal"><dt data-i18n="pr.fig3.v"></dt><dd data-i18n="pr.fig3.l"></dd></div>
-      <div class="reveal"><dt data-i18n="pr.fig4.v"></dt><dd data-i18n="pr.fig4.l"></dd></div>
-    </dl>
-  </div>
-</section>
-
-<!-- FIELD -->
-<section class="pr-section pr-field">
-  <div class="container pr-field-grid">
-    <div>
-      <span class="pr-kicker" data-i18n="pr.field.tag">Conçu pour le terrain</span>
-      <h2 class="pr-h2" data-i18n="pr.field.title"></h2>
-    </div>
-    <ul class="pr-rows">
-      <li class="reveal"><h3 data-i18n="pr.f1.t"></h3><p data-i18n="pr.f1.p"></p></li>
-      <li class="reveal"><h3 data-i18n="pr.f2.t"></h3><p data-i18n="pr.f2.p"></p></li>
-      <li class="reveal"><h3 data-i18n="pr.f3.t"></h3><p data-i18n="pr.f3.p"></p></li>
-      <li class="reveal"><h3 data-i18n="pr.f4.t"></h3><p data-i18n="pr.f4.p"></p></li>
-      <li class="reveal"><h3 data-i18n="pr.f5.t"></h3><p data-i18n="pr.f5.p"></p></li>
+<!-- SAFETY AND RUGGEDNESS -->
+<section class="pv2-section pv2-spec">
+  <div class="container">
+    <h2 class="pv2-h2" data-i18n="pr.spec.title"></h2>
+    <ul class="pv2-spec-grid">
+      <li class="reveal"><h3 data-i18n="pr.spec1.t"></h3><p data-i18n="pr.spec1.p"></p></li>
+      <li class="reveal"><h3 data-i18n="pr.spec2.t"></h3><p data-i18n="pr.spec2.p"></p></li>
+      <li class="reveal"><h3 data-i18n="pr.spec3.t"></h3><p data-i18n="pr.spec3.p"></p></li>
     </ul>
   </div>
 </section>
 
 <!-- STATUS -->
-<section class="pr-section pr-status">
+<section class="pv2-section pv2-status">
   <div class="container">
-    <span class="pr-kicker" data-i18n="pr.st.tag">Où nous en sommes</span>
-    <h2 class="pr-h2" data-i18n="pr.st.title"></h2>
-    <ol class="pr-timeline">
+    <h2 class="pv2-h2" data-i18n="pr.st.title"></h2>
+    <ol class="pv2-timeline">
       <li class="is-now reveal"><span data-i18n="pr.st1.k"></span><p data-i18n="pr.st1.p"></p></li>
       <li class="reveal"><span data-i18n="pr.st2.k"></span><p data-i18n="pr.st2.p"></p></li>
       <li class="reveal"><span data-i18n="pr.st3.k"></span><p data-i18n="pr.st3.p"></p></li>
@@ -146,11 +149,13 @@
 </section>
 
 <!-- CTA -->
-<section class="pr-section pr-cta">
-  <div class="container pr-cta-inner">
-    <h2 class="pr-h2" data-i18n="pr.cta.title"></h2>
-    <p data-i18n="pr.cta.p"></p>
-    <a class="btn btn-white" href="contact?subject=pilot" data-i18n="pr.cta.btn">Nous écrire</a>
+<section class="pv2-cta">
+  <div class="container pv2-cta-inner">
+    <h2 class="pv2-h2" data-i18n="pr.cta.title"></h2>
+    <div>
+      <p data-i18n="pr.cta.p"></p>
+      <a class="btn pv2-btn" href="contact?subject=pilot" data-i18n="pr.cta.btn">Nous écrire</a>
+    </div>
   </div>
 </section>
 
@@ -194,6 +199,21 @@
   </div>
 </footer>
 
+<!-- sticky CTA (mobile) -->
+<a class="pv2-sticky" href="contact?subject=pilot" data-i18n="pr.cta1">Discuter d’un pilote</a>
+
 <script src="assets/js/main.js"></script>
+<script>
+  (function () {
+    var b = document.querySelector('.pv2-sticky'), hero = document.querySelector('.pv2-hero'), cta = document.querySelector('.pv2-cta');
+    if (!b || !hero) return;
+    function upd() {
+      var past = hero.getBoundingClientRect().bottom < 0;
+      var atCta = cta && cta.getBoundingClientRect().top < innerHeight;
+      b.classList.toggle('show', past && !atCta);
+    }
+    addEventListener('scroll', upd, { passive: true }); upd();
+  })();
+</script>
 </body>
 </html>
