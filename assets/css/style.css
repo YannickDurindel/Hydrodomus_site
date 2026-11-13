@@ -762,3 +762,9 @@ footer {
 .legal-prose a, .footer-legal { color: var(--blue); }
 .footer-legal:hover { text-decoration: underline; }
 .legal-updated { margin-top: 2.5rem; font-size: 0.85rem; color: var(--text-3) !important; }
+
+/* homepage: product button and legal link over the animation */
+.chem-cta { pointer-events: auto; display: inline-block; margin-top: 1.5rem; padding: 0.85rem 1.5rem; border-radius: 6px; background: var(--navy); color: #fff; font-weight: 600; font-size: 0.95rem; transition: background .2s, transform .2s; }
+.chem-cta:hover { background: var(--navy-3); transform: translateY(-1px); }
+.chem-legal { position: absolute; right: 1.25rem; bottom: 0.9rem; z-index: 3; font-size: 0.75rem; color: var(--text-3); }
+.chem-legal:hover { color: var(--navy); }

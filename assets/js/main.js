@@ -10,7 +10,7 @@ const translations = {
     'nav.contact':  'Contact',
 
     'home.headline': "Décentralisons la production d'hydrogène",
-    'home.subline':  "Conçu pour le terrain, avec pour cible la norme MIL-STD-810",
+    'home.subline':  "Des stations remorquables qui produisent l'hydrogène sur place, pour les drones et les ballons.",
     'chem.s1':    'Eau non traitée',
     'chem.s2':    'Filtration par osmose inverse',
     'chem.s3':    'Électrolyse',
@@ -116,7 +116,7 @@ const translations = {
     'nav.contact':  'Contact',
 
     'home.headline': 'Decentralize hydrogen production',
-    'home.subline':  "Built for the field, targeting MIL-STD-810",
+    'home.subline':  "Towable stations that make hydrogen on site, for drones and balloons.",
     'chem.s1':    'Untreated water',
     'chem.s2':    'Reverse osmosis filtration',
     'chem.s3':    'Electrolysis',
