@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /calculator/
+Disallow: /learn/
+
+Sitemap: https://hydrodomus.com/sitemap.xml

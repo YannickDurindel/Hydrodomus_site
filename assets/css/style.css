@@ -754,3 +754,11 @@ footer {
   .pv2-sticky { transform: translateY(140%); transition: transform .3s ease; }
   .pv2-sticky.show { transform: none; }
 }
+
+/* legal page and footer link */
+.legal-prose { max-width: 760px; }
+.legal-prose h2 { font-family: var(--font-display); font-size: 1.15rem; color: var(--navy); margin: 2rem 0 0.6rem; }
+.legal-prose p { color: var(--text-2); line-height: 1.75; }
+.legal-prose a, .footer-legal { color: var(--blue); }
+.footer-legal:hover { text-decoration: underline; }
+.legal-updated { margin-top: 2.5rem; font-size: 0.85rem; color: var(--text-3) !important; }

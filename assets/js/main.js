@@ -26,6 +26,10 @@ const translations = {
     'ft.contact': 'Contact',
     'ft.copy':    '© 2026 Hydrodomus. Tous droits réservés.',
     'ft.frenchtech': 'Membre de',
+    "ft.legal": "Mentions légales",
+    "lg.title": "Mentions légales",
+    "lg.updated": "Mise à jour : 13 novembre 2026",
+    "home.cta": "Découvrir le TRN-10",
 
 
     /* ── PRODUCT PAGE ── */
@@ -128,6 +132,10 @@ const translations = {
     'ft.contact': 'Contact',
     'ft.copy':    '© 2026 Hydrodomus. All rights reserved.',
     'ft.frenchtech': 'Member of',
+    "ft.legal": "Legal notice",
+    "lg.title": "Legal notice",
+    "lg.updated": "Last updated: 13 November 2026",
+    "home.cta": "See the TRN-10",
 
 
     /* ── PRODUCT PAGE ── */
