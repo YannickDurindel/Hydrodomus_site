@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hydrodomus | On-site hydrogen calculator</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Size an on-site hydrogen unit: electrolyser, storage, power, water and estimated cost from your fill requirements.">
+  <link rel="icon" href="../assets/images/logo-removebg.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .calc-grid { display: grid; grid-template-columns: minmax(260px, 340px) 1fr; gap: 2rem; align-items: start; }
+    @media (max-width: 860px) { .calc-grid { grid-template-columns: 1fr; } }
+    .calc-panel { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-sm); }
+    .calc-field { margin-bottom: 1.1rem; }
+    .calc-field label { display: block; font-family: var(--font-display); font-weight: 600; font-size: 0.85rem; margin-bottom: 0.35rem; }
+    .calc-field .hint { font-size: 0.75rem; color: #5b6475; margin-top: 0.25rem; }
+    .calc-row { display: flex; gap: 0.6rem; align-items: center; }
+    .calc-row input[type=range] { flex: 1; accent-color: var(--blue); }
+    .calc-row input[type=number] { width: 6.5rem; }
+    .calc-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .calc-table th, .calc-table td { padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--border); text-align: right; }
+    .calc-table th:first-child, .calc-table td:first-child { text-align: left; color: #3b4456; }
+    .calc-table thead th { font-family: var(--font-display); font-size: 0.95rem; background: var(--bg-alt); }
+    .calc-table tr.key td { font-weight: 600; color: var(--text); }
+    .calc-table tr.group td { background: var(--bg); font-family: var(--font-display); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: #5b6475; }
+    .best { color: var(--green); font-weight: 600; }
+    .calc-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.8rem; margin-bottom: 1.2rem; }
+    .stat { background: var(--blue-light); border-radius: var(--radius); padding: 0.8rem 1rem; }
+    .stat .v { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: var(--blue-mid); }
+    .stat .l { font-size: 0.75rem; color: #3b4456; }
+    .calc-note { font-size: 0.78rem; color: #5b6475; margin-top: 1rem; line-height: 1.5; }
+      .chips { display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .chip { border:1px solid var(--border); background:var(--white); border-radius:999px; padding:0.35rem 0.8rem; font-size:0.8rem; cursor:pointer; font-family:var(--font-body); }
+    .chip.on, .chip:hover { border-color:var(--blue); color:var(--blue); background:var(--blue-light); }
+    .seg { display:flex; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+    .seg label { flex:1; text-align:center; margin:0; font-weight:500; font-family:var(--font-body); font-size:0.8rem; cursor:pointer; }
+    .seg input { display:none; }
+    .seg span { display:block; padding:0.45rem 0.3rem; }
+    .seg input:checked + span { background:var(--blue); color:#fff; }
+    .checks label { display:flex; gap:0.5rem; align-items:flex-start; font-weight:400; font-family:var(--font-body); font-size:0.83rem; margin-bottom:0.35rem; }
+    .checks input:disabled + * , .checks label:has(input:disabled) { opacity:0.45; }
+    .tbl { padding:0; overflow-x:auto; }
+    .calc-h3 { font-family:var(--font-display); font-size:1.05rem; margin:1.4rem 0 0.6rem; }
+    .calc-table td:nth-child(2) { font-weight:500; }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="main-nav">
+  <a href="../" class="nav-logo">
+    <img src="../assets/images/logo-removebg.png" alt="Hydrodomus">
+    <span class="nav-logo-name">Hydrodomus</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../"             class="nav-page-link" data-i18n="nav.home">Accueil</a></li>
+    <li><a href="../product" class="nav-page-link" data-i18n="nav.product">Produit</a></li>
+    <li><a href="../waitlist"     class="nav-page-link" data-i18n="nav.waitlist">Liste d'attente</a></li>
+    <li><a href="../contact"      class="nav-page-link" data-i18n="nav.contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close" id="mobile-close">✕</button>
+  <a href="../"             class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
+  <a href="../product" class="mobile-nav-link" data-i18n="nav.product">Produit</a>
+  <a href="../waitlist"     class="mobile-nav-link" data-i18n="nav.waitlist">Liste d'attente</a>
+  <a href="../contact"      class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
+  <div class="mobile-lang">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</div>
+
+<header class="page-header">
+  <div class="container">
+    <span class="section-tag" data-c="tag"></span>
+    <h1 class="page-header-title" data-c="title"></h1>
+    <p class="page-header-sub" data-c="sub"></p>
+  </div>
+</header>
+
+<section class="section-white">
+  <div class="container">
+    <div class="calc-grid">
+      <form class="calc-panel" id="f" onsubmit="return false">
+        <div class="calc-field">
+          <label data-c="in_case"></label>
+          <div class="chips" id="presets"></div>
+        </div>
+        <div class="calc-field">
+          <label for="amt" data-c="in_amt"></label>
+          <div class="calc-row"><input class="form-input" type="number" id="amt" min="0.01" step="any">
+            <select class="form-select" id="unit" style="width:6.5rem"><option value="nm3">Nm³</option><option value="kg">kg</option></select></div>
+          <div class="hint" id="amt_hint"></div>
+        </div>
+        <div class="calc-field">
+          <label for="fpd" data-c="in_fpd"></label>
+          <input class="form-input" type="number" id="fpd" min="0.01" step="any">
+          <div class="hint" data-c="in_fpd_h"></div>
+        </div>
+        <div class="calc-field">
+          <label data-c="in_deliv"></label>
+          <div class="seg" id="deliv">
+            <label><input type="radio" name="deliv" value="0"><span data-c="d0"></span></label>
+            <label><input type="radio" name="deliv" value="350"><span>350 bar</span></label>
+            <label><input type="radio" name="deliv" value="700"><span>700 bar</span></label>
+          </div>
+        </div>
+        <div class="calc-field">
+          <label data-c="in_store"></label>
+          <div class="seg" id="store">
+            <label><input type="radio" name="store" value="none"><span data-c="s_none"></span></label>
+            <label><input type="radio" name="store" value="lp"><span data-c="s_lp"></span></label>
+            <label><input type="radio" name="store" value="hp"><span data-c="s_hp"></span></label>
+          </div>
+          <div class="hint" id="store_hint"></div>
+        </div>
+        <div class="calc-field" id="fillh_f">
+          <label for="fillh" data-c="in_fillh"></label>
+          <input class="form-input" type="number" id="fillh" min="0.5" step="any">
+          <div class="hint" data-c="in_fillh_h"></div>
+        </div>
+        <div class="calc-field">
+          <label data-c="in_opts"></label>
+          <div class="checks" id="opts"></div>
+        </div>
+        <div class="calc-field">
+          <label for="power" data-c="in_power"></label>
+          <div class="calc-row">
+            <select class="form-select" id="power"><option value="grid" data-c="opt_grid"></option><option value="genset" data-c="opt_genset"></option></select>
+            <input class="form-input" type="number" id="eprice" step="any" style="width:6.5rem">
+          </div>
+          <div class="hint" id="eprice_h"></div>
+        </div>
+        <div class="calc-field">
+          <label for="years" data-c="in_years"></label>
+          <input class="form-input" type="number" id="years" min="1" max="25" value="10">
+          <div class="hint" data-c="in_years_h"></div>
+        </div>
+        <div class="calc-field">
+          <label for="maint" data-c="in_maint"></label>
+          <input class="form-input" type="number" id="maint" min="0" step="any" value="500">
+          <div class="hint" data-c="in_maint_h"></div>
+        </div>
+      </form>
+
+      <div>
+        <div class="calc-summary" id="summary"></div>
+        <div class="calc-panel tbl"><table class="calc-table" id="specs"></table></div>
+        <h3 class="calc-h3" data-c="h_cost"></h3>
+        <div class="calc-panel tbl"><table class="calc-table" id="costs"></table></div>
+        <p class="calc-note" id="warn"></p>
+        <p class="calc-note" data-c="note"></p>
+        <p style="margin-top:1.2rem"><a class="btn btn-primary" href="../contact" data-c="cta"></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="../assets/js/main.js"></script>
+<script>
+/* Hydrodomus sizing and cost model. Estimates before pilot, +/-25 %. */
+const K = {
+  NM3_KG: 1 / 0.0899, KWH_KG: 55, L_KG: 11, STACK_KGD: 2.43, KWH_PER_L: 3.0, UPKEEP: 5.0, CADRE_NM3: 150,
+  CONT: 0.20, SERV: [15, 40], BIZ: 1.25,
+  RHO: { 30: 2.5, 350: 23.3, 500: 30.8, 900: 48.5 },          // kg/m3 at 15 C (NIST approx.)
+  USABLE: { lp: 0.90, hp_low: 0.94, hp_vessel: 0.50 },          // E: share of stored H2 deliverable
+  LP_EUR_M3: [3.0, 6.0],                                         // E: 30 bar steel vessels, k EUR per m3
+  CYL50: [1.2, 2.0],                                            // E: rounded range, 50 L 500 bar cylinder + valve/frame share
+  CYL900_EUR_L: [0.06, 0.12],                                    // E: 900 bar composite/Type 2, k EUR per litre
+  COMP_NM3H: 6,                                                  // E: flow per compressor unit (verify)
+  COMP: { 350: [25, 31], 500: [30, 40], 900: [60, 110] },        // E: rounded ranges, k EUR per unit
+  FILL_LP_NM3H: 1000
+};
+const sc = (r, f, e) => [r[0] * Math.pow(f, e), r[1] * Math.pow(f, e)];
+
+const OPTS = ["dry", "purity", "water", "mobile", "cold", "disp", "precool", "n2"];
+const PRESETS = {
+  balloon: { amt: 250, unit: "nm3", fpd: 1, deliv: "0", store: "hp", fillh: 12, opts: ["dry", "water", "mobile", "n2"] },
+  drone:   { amt: 0.3, unit: "kg", fpd: 30, deliv: "350", store: "hp", fillh: 12, opts: ["dry", "purity", "water", "mobile", "cold", "disp"] },
+  truck:   { amt: 30, unit: "kg", fpd: 1, deliv: "350", store: "hp", fillh: 12, opts: ["dry", "purity", "water", "disp"] },
+  car:     { amt: 5, unit: "kg", fpd: 4, deliv: "700", store: "hp", fillh: 12, opts: ["dry", "purity", "water", "disp", "precool"] },
+  site:    { amt: 10, unit: "kg", fpd: 1, deliv: "0", store: "lp", fillh: 12, opts: ["dry", "purity", "water"] }
+};
+
+function model(i) {
+  const kg = i.unit === "kg" ? i.amt : i.amt / K.NM3_KG, daily = kg * i.fpd;
+  let store = i.store;
+  if (i.deliv !== "0" && store !== "hp") store = "hp";                    // vessel filling needs compressed storage
+  const nStack = store === "none" ? Math.ceil(Math.max(daily, kg * 24 / i.fillh) / K.STACK_KGD)
+                                  : Math.ceil(daily / K.STACK_KGD);
+  const n = Math.max(1, nStack), f = n / 4, prod = n * K.STACK_KGD;
+  const parts = [];
+  const add = (key, r, tag) => parts.push({ key, r, tag });
+  add("stacks", [n * 49.9 / 4, n * 61.4 / 4], "Q/B");
+  add(i.opts.water ? "water_raw" : "water_di", i.opts.water ? sc([1.6, 3.4], f, 0.6) : sc([0.6, 1.2], f, 0.6), "B/E");
+  if (i.opts.dry) add("dry", sc([4.0, 10.0], f, 0.6), "B");
+  if (i.opts.purity) add("purity", sc([3.5, 8.2], f, 0.6), "B");
+  add("power", sc([10.0, 25.0], f, 1.0), "B");
+  add("safety", sc([10.1, 25.6], f, 0.3), "B");
+  add("controls", sc([9.5, 23.0], f, 0.3), "B");
+  add(i.opts.mobile ? "mobile" : "fixed", i.opts.mobile ? sc([12.5, 31.5], f, 0.5) : sc([6.0, 15.0], f, 0.5), "B/E");
+  if (i.opts.cold) add("cold", sc([4.0, 10.0], f, 0.5), "E");
+  if (i.opts.n2) add("n2", [4.0, 9.0], "E");
+
+  const st = { type: store, bar: 0, m3: 0, mass: 0, ncyl: 0, ncomp: 0, flow: 0 };
+  if (store === "lp") {
+    st.bar = 30; st.m3 = kg / K.RHO[30] / K.USABLE.lp;
+    add("lpstore", [st.m3 * K.LP_EUR_M3[0], st.m3 * K.LP_EUR_M3[1]], "E");
+  }
+  if (store === "hp") {
+    st.bar = i.deliv === "0" ? 350 : i.deliv === "350" ? 500 : 900;
+    const use = i.deliv === "0" ? K.USABLE.hp_low : K.USABLE.hp_vessel;
+    st.m3 = Math.max(kg, i.deliv === "0" ? 0 : daily / 4) / K.RHO[st.bar] / use;   // vessels: at least a quarter-day buffer
+    st.flow = prod / 24 * K.NM3_KG; st.ncomp = Math.ceil(st.flow / K.COMP_NM3H);
+    const cb = st.bar <= 350 ? 350 : st.bar;
+    add("comp", [st.ncomp * K.COMP[cb][0], st.ncomp * K.COMP[cb][1]], st.bar <= 350 ? "Q" : "E");
+    add("lpbuf", sc([1.5, 4.0], f, 0.5), "B");
+    add("hppipe", st.bar >= 900 ? [10, 25] : [5, 12], "B/E");
+    if (st.bar <= 500) {
+      st.ncyl = Math.max(1, Math.ceil(st.m3 * 1000 / 50)); st.mass = st.ncyl * 0.09;
+      add("hpstore", [st.ncyl * K.CYL50[0], st.ncyl * K.CYL50[1]], "Q/E");
+    } else {
+      st.mass = st.m3 * 1000 * 0.0012;                                              // E: ~1.2 kg per litre, composite
+      add("hpstore", [st.m3 * 1000 * K.CYL900_EUR_L[0], st.m3 * 1000 * K.CYL900_EUR_L[1]], "E");
+    }
+  }
+  if (i.deliv === "0") add("manifold", [2.0, 5.0], "E");
+  else if (i.opts.disp) add(i.deliv === "700" ? "disp700" : "disp350", i.deliv === "700" ? [25, 60] : [9, 21], i.deliv === "700" ? "E" : "B");
+  if (i.deliv === "700" && i.opts.precool) add("precool", [30, 80], "E");
+
+  const hw = [0, 1].map(k => parts.reduce((s, p) => s + p.r[k], 0));
+  const tot = [0, 1].map(k => (hw[k] * (1 + K.CONT) + K.SERV[k]) * K.BIZ);
+  const kwh = prod * K.KWH_KG + (st.ncomp ? prod * (st.bar >= 900 ? 4 : 2.5) : 0);   // E: compression kWh/kg
+  let fill;
+  if (store === "none") fill = kg / prod * 24 * 60;
+  else if (i.deliv === "0") fill = kg * K.NM3_KG / K.FILL_LP_NM3H * 60;
+  else fill = null;
+  const housing = !i.opts.mobile ? "skid" : n <= 6 && st.m3 < 1.5 ? "trailer" : n <= 16 ? "c20" : "c40";
+  return { kg, daily, store, n, prod, parts, hw, tot, mid: (tot[0] + tot[1]) / 2, kwh, kw: kwh / 24,
+           water: prod * K.L_KG, diesel: kwh / K.KWH_PER_L, st, fill, refill: store !== "none" ? kg / prod * 24 * 60 : null,
+           housing, under: prod < daily - 1e-9 };
+}
+
+const C = {
+  en: { tag: "Calculator", title: "On-site hydrogen: size, energy and cost",
+    sub: "Describe what you need to fill. The calculator sizes the electrolyser, storage and compression, and gives power, water, footprint and an estimated cost.",
+    in_case: "Start from a use case", p_balloon: "Balloon lift gas", p_drone: "Drone refuelling", p_truck: "Truck / bus", p_car: "Car (700 bar)", p_site: "Site supply",
+    in_amt: "Hydrogen per fill", in_fpd: "Fills per day", in_fpd_h: "Average over operations, e.g. 0.5 = one fill every two days.",
+    in_deliv: "Delivery pressure", d0: "Low pressure",
+    in_store: "Storage", s_none: "None (direct)", s_lp: "Low-pressure buffer", s_hp: "Compressed",
+    in_fillh: "Direct fill: target fill time (h)", in_fillh_h: "Without storage, the electrolyser is sized to fill in this time.",
+    in_opts: "Options",
+    o: { dry: "Gas drying (dew point ≤ −40 °C)", purity: "Fuel-cell purity (ISO 14687)", water: "Treats raw water (RO + DI)", mobile: "Mobile (trailer or container)",
+         cold: "Cold-weather pack (−30 °C)", disp: "Dispenser with fill protocol", precool: "Pre-cooling −40 °C (700 bar fast fill)", n2: "Nitrogen purge generator" },
+    in_power: "Power source and price", opt_grid: "Grid (€/kWh)", opt_genset: "Diesel generator (€/L)", in_years: "Amortisation (years)", in_years_h: "Plant life.", in_maint: "Maintenance (€ per quarter, per 10 kg/day module)", in_maint_h: "Service visit, filters, water treatment and dryer consumables.", p_run: "Running cost per kg (energy + maintenance)", p_amort: "Amortisation per kg",
+    hint_kg: (kg, nm3) => `= ${kg} kg = ${nm3} Nm³`, store_forced: "Vessel filling at 350 or 700 bar needs compressed storage.",
+    s_kg: "hydrogen per day", s_cost: "estimated system cost", s_kw: "average power", s_fill: "cost per kg delivered",
+    r: { stacks: "Electrolyser", prod: "Production", fill: "Fill time", refill: "Storage refill", storage: "Storage", comp: "Compression",
+         house: "Format", kw: "Average power", kwh: "Energy per day", eff: "System efficiency (LHV)", kwhkg: "Energy per kg", water: "Water per day", diesel: "Diesel per day (if generator)", cadres: "200 bar bundles replaced per day" },
+    stack: n => `${n} stack${n > 1 ? "s" : ""}`, perDay: "kg/day", none: "none", protocol: "per vessel fill protocol",
+    house: { trailer: "trailer", c20: "20 ft container", c40: "40 ft container", skid: "fixed skid" },
+    st: { lp: "low-pressure tanks", hp: "compressed bank" }, comp: (n, f) => `${n} unit${n > 1 ? "s" : ""}, ${f} Nm³/h`,
+    h_cost: "Estimated cost", c_item: "Subsystem", c_low: "Low", c_high: "High", c_src: "Basis",
+    c: { stacks: "Electrolyser stacks and balance of plant", water_raw: "Water treatment (raw water)", water_di: "Water feed (DI water supplied)", dry: "Gas drying",
+         purity: "Purification to fuel-cell grade", power: "Power conversion", safety: "Safety systems", controls: "Controls and instrumentation",
+         mobile: "Trailer or container, enclosure", fixed: "Skid and enclosure", cold: "Cold-weather pack", n2: "Nitrogen purge generator",
+         lpstore: "Low-pressure storage", comp: "Compressors", lpbuf: "Compressor inlet buffer", hppipe: "High-pressure piping", hpstore: "High-pressure storage",
+         manifold: "Low-pressure fill manifold", disp350: "350 bar dispenser", disp700: "700 bar dispenser", precool: "Pre-cooling unit" },
+    t_hw: "Hardware", t_tot: "System cost",
+    pf: "Cost per fill", pkg: "Cost per kg", pnm3: "Cost per Nm³",
+    w_under: "Note: demand exceeds production; increase storage or stacks.",
+    note: "Estimates before our first pilot (early 2027), ±25 %, not a quote. Based on European supplier prices and our pilot bill of materials, including contingency, engineering and business costs. Electrolyser stacks of 2.43 kg/day each; about 55 kWh per kg. Cost per fill spreads the system over the amortisation period at the chosen cadence, plus energy and maintenance. 700 bar figures are less mature than 350 bar.",
+    cta: "Discuss your case" },
+  fr: { tag: "Calculateur", title: "Hydrogène sur site : taille, énergie et coût",
+    sub: "Décrivez ce que vous devez remplir. Le calculateur dimensionne l'électrolyseur, le stockage et la compression, et donne puissance, eau, encombrement et coût estimé.",
+    in_case: "Partir d'un cas d'usage", p_balloon: "Gaz de gonflage", p_drone: "Ravitaillement drones", p_truck: "Camion / bus", p_car: "Voiture (700 bar)", p_site: "Alimentation de site",
+    in_amt: "Hydrogène par remplissage", in_fpd: "Remplissages par jour", in_fpd_h: "Moyenne sur les opérations, par ex. 0,5 = un remplissage tous les deux jours.",
+    in_deliv: "Pression de livraison", d0: "Basse pression",
+    in_store: "Stockage", s_none: "Aucun (direct)", s_lp: "Tampon basse pression", s_hp: "Compressé",
+    in_fillh: "Direct : temps de remplissage visé (h)", in_fillh_h: "Sans stockage, l'électrolyseur est dimensionné pour remplir dans ce temps.",
+    in_opts: "Options",
+    o: { dry: "Séchage du gaz (point de rosée ≤ −40 °C)", purity: "Pureté pile à combustible (ISO 14687)", water: "Traite l'eau brute (osmose + DI)", mobile: "Mobile (remorque ou conteneur)",
+         cold: "Pack grand froid (−30 °C)", disp: "Distributeur avec protocole de remplissage", precool: "Pré-refroidissement −40 °C (700 bar rapide)", n2: "Générateur d'azote pour la purge" },
+    in_power: "Source d'énergie et prix", opt_grid: "Réseau (€/kWh)", opt_genset: "Groupe électrogène (€/L)", in_years: "Amortissement (années)", in_years_h: "Durée de vie de l'installation.", in_maint: "Maintenance (€ par trimestre, par module de 10 kg/jour)", in_maint_h: "Visite de service, filtres, traitement de l'eau et consommables du sécheur.", p_run: "Coût d'exploitation par kg (énergie + maintenance)", p_amort: "Amortissement par kg",
+    hint_kg: (kg, nm3) => `= ${kg} kg = ${nm3} Nm³`, store_forced: "Le remplissage de réservoirs à 350 ou 700 bar demande un stockage compressé.",
+    s_kg: "d'hydrogène par jour", s_cost: "coût système estimé", s_kw: "puissance moyenne", s_fill: "coût par kg livré",
+    r: { stacks: "Électrolyseur", prod: "Production", fill: "Temps de remplissage", refill: "Recharge du stockage", storage: "Stockage", comp: "Compression",
+         house: "Format", kw: "Puissance moyenne", kwh: "Énergie par jour", eff: "Rendement système (PCI)", kwhkg: "Énergie par kg", water: "Eau par jour", diesel: "Gazole par jour (si groupe)", cadres: "Cadres 200 bar remplacés par jour" },
+    stack: n => `${n} stack${n > 1 ? "s" : ""}`, perDay: "kg/jour", none: "aucun", protocol: "selon le protocole du réservoir",
+    house: { trailer: "remorque", c20: "conteneur 20 pieds", c40: "conteneur 40 pieds", skid: "skid fixe" },
+    st: { lp: "réservoirs basse pression", hp: "banc compressé" }, comp: (n, f) => `${n} unité${n > 1 ? "s" : ""}, ${f} Nm³/h`,
+    h_cost: "Coût estimé", c_item: "Sous-ensemble", c_low: "Bas", c_high: "Haut", c_src: "Base",
+    c: { stacks: "Stacks d'électrolyse et périphériques", water_raw: "Traitement de l'eau (eau brute)", water_di: "Alimentation en eau (eau DI fournie)", dry: "Séchage du gaz",
+         purity: "Purification qualité pile à combustible", power: "Conversion de puissance", safety: "Systèmes de sécurité", controls: "Contrôle-commande et instrumentation",
+         mobile: "Remorque ou conteneur, enveloppe", fixed: "Skid et enveloppe", cold: "Pack grand froid", n2: "Générateur d'azote",
+         lpstore: "Stockage basse pression", comp: "Compresseurs", lpbuf: "Tampon d'aspiration", hppipe: "Tuyauterie haute pression", hpstore: "Stockage haute pression",
+         manifold: "Rampe de remplissage basse pression", disp350: "Distributeur 350 bar", disp700: "Distributeur 700 bar", precool: "Groupe de pré-refroidissement" },
+    t_hw: "Matériel", t_tot: "Coût du système",
+    pf: "Coût par remplissage", pkg: "Coût par kg", pnm3: "Coût par Nm³",
+    w_under: "Attention : la demande dépasse la production ; augmenter le stockage ou les stacks.",
+    note: "Estimations avant notre premier pilote (début 2027), ±25 %, pas un devis. Basées sur des prix de fournisseurs européens et notre nomenclature pilote, aléas, ingénierie et frais de structure inclus. Stacks d'électrolyse de 2,43 kg/jour chacun ; environ 55 kWh par kg. Le coût par remplissage amortit le système sur la durée choisie à la cadence indiquée, plus l'énergie et la maintenance. Les chiffres 700 bar sont moins mûrs que ceux à 350 bar.",
+    cta: "Parler de votre cas" }
+};
+const L = () => (localStorage.getItem("hd_lang") === "fr" ? "fr" : "en");
+const nf = (x, d = 0) => x.toLocaleString(L() === "fr" ? "fr-FR" : "en-GB", { maximumFractionDigits: d, minimumFractionDigits: d });
+const eur = k => k >= 1000 ? `~${nf(k / 1000, 2)} M€` : `~${nf(Math.round(k / 5) * 5)} k€`;
+const dur = m => m < 90 ? `${nf(m)} min` : m < 72 * 60 ? `${nf(m / 60, 1)} h` : `${nf(m / 1440, 1)} ${L() === "fr" ? "jours" : "days"}`;
+const $ = id => document.getElementById(id);
+const radio = name => document.querySelector(`input[name=${name}]:checked`).value;
+
+function buildStatic() {
+  const c = C[L()];
+  document.querySelectorAll("[data-c]").forEach(el => { el.textContent = c[el.dataset.c]; });
+  $("presets").innerHTML = Object.keys(PRESETS).map(k => `<button type="button" class="chip" data-p="${k}">${c["p_" + k]}</button>`).join("");
+  document.querySelectorAll("[data-p]").forEach(b => b.addEventListener("click", () => { applyPreset(b.dataset.p); }));
+  const checked = new Set(OPTS.filter(o => $("o_" + o) && $("o_" + o).checked));
+  const first = !$("o_dry");
+  $("opts").innerHTML = OPTS.map(o => `<label><input type="checkbox" id="o_${o}"> ${c.o[o]}</label>`).join("");
+  OPTS.forEach(o => { $("o_" + o).checked = first ? false : checked.has(o); $("o_" + o).addEventListener("change", render); });
+  return first;
+}
+function applyPreset(k) {
+  const p = PRESETS[k];
+  $("amt").value = p.amt; $("unit").value = p.unit; $("fpd").value = p.fpd; $("fillh").value = p.fillh;
+  document.querySelector(`input[name=deliv][value="${p.deliv}"]`).checked = true;
+  document.querySelector(`input[name=store][value="${p.store}"]`).checked = true;
+  OPTS.forEach(o => { $("o_" + o).checked = p.opts.includes(o); });
+  document.querySelectorAll("[data-p]").forEach(b => b.classList.toggle("on", b.dataset.p === k));
+  render();
+}
+function render() {
+  const c = C[L()];
+  const genset = $("power").value === "genset";
+  const i = { amt: +$("amt").value || 0, unit: $("unit").value, fpd: +$("fpd").value || 0.01, fillh: +$("fillh").value || 12,
+              deliv: radio("deliv"), store: radio("store"), opts: Object.fromEntries(OPTS.map(o => [o, $("o_" + o).checked])) };
+  if (i.amt <= 0) return;
+  const m = model(i), price = +$("eprice").value || 0, years = +$("years").value || 5;
+  $("amt_hint").textContent = c.hint_kg(nf(m.kg, m.kg < 10 ? 2 : 1), nf(m.kg * K.NM3_KG, 0));
+  $("store_hint").textContent = i.deliv !== "0" && i.store !== "hp" ? c.store_forced : "";
+  $("fillh_f").style.display = m.store === "none" ? "" : "none";
+  $("eprice_h").textContent = "";
+  ["disp", "precool"].forEach(o => { $("o_" + o).disabled = i.deliv === "0" || (o === "precool" && i.deliv !== "700"); });
+  const energy = genset ? m.diesel * price : m.kwh * price;                       // per day
+  const maint = +$("maint").value || 0;
+  const amortKg = m.mid * 1000 / (years * 365 * m.daily), runKg = energy / m.prod + maint * 4 * (m.n / 4) / (365 * m.daily);
+  const perKg = amortKg + runKg;
+  const perFill = perKg * m.kg;
+  const row = (l, v, key) => `<tr${key ? ' class="key"' : ""}><td>${l}</td><td>${v}</td></tr>`;
+  const st = m.st;
+  const storeTxt = m.store === "none" ? c.none
+    : m.store === "lp" ? `${c.st.lp}, 30 bar, ${nf(st.m3, 1)} m³`
+    : st.ncyl ? `${c.st.hp}, ${st.bar} bar, ${st.ncyl} × 50 L (${nf(st.m3, 2)} m³, ~${nf(st.mass, 1)} t)`
+    : `${c.st.hp}, ${st.bar} bar, ${nf(st.m3 * 1000)} L (~${nf(st.mass, 1)} t)`;
+  $("specs").innerHTML = "<tbody>" +
+    row(c.r.stacks, `${c.stack(m.n)}`) + row(c.r.prod, `${nf(m.prod, 1)} ${c.perDay}`, true) +
+    row(c.r.fill, m.fill == null ? c.protocol : dur(m.fill), true) +
+    (m.refill != null ? row(c.r.refill, dur(m.refill)) : "") +
+    row(c.r.storage, storeTxt) + row(c.r.comp, st.ncomp ? c.comp(st.ncomp, nf(st.flow, 1)) : c.none) +
+    row(c.r.house, c.house[m.housing]) + row(c.r.kw, `${nf(m.kw, 1)} kW`, true) + row(c.r.kwh, `${nf(m.kwh)} kWh`) +
+    row(c.r.kwhkg, `${nf(m.kwh / m.prod, 1)} kWh`) + row(c.r.eff, `${nf(3330 / (m.kwh / m.prod))} %`, true) +
+    row(c.r.water, `${nf(m.water)} L`) + row(c.r.diesel, `${nf(m.diesel)} L`) +
+    row(c.r.cadres, nf(m.daily * K.NM3_KG / K.CADRE_NM3, 1)) + "</tbody>";
+  const k = v => nf(v * (1 + K.CONT) * K.BIZ, 0);
+  $("costs").innerHTML = "<tbody>" +
+    `<tr class="key"><td>${c.t_tot}</td><td>${eur(m.tot[0])} – ${eur(m.tot[1]).replace("~", "")}</td></tr>` +
+    `<tr class="key"><td>${c.pf}</td><td>${nf(perFill, perFill < 20 ? 2 : 0)} €</td></tr>` +
+    `<tr><td>${c.pkg}</td><td>${nf(perKg, 1)} €</td></tr>` +
+    `<tr><td>&nbsp;&nbsp;${c.p_amort}</td><td>${nf(amortKg, 1)} €</td></tr>` +
+    `<tr><td>&nbsp;&nbsp;${c.p_run}</td><td>${nf(runKg, 1)} €</td></tr>` +
+    `<tr><td>${c.pnm3}</td><td>${nf(perKg / K.NM3_KG, 2)} €</td></tr></tbody>`;
+  $("summary").innerHTML =
+    `<div class="stat"><div class="v">${nf(m.daily, m.daily < 10 ? 1 : 0)} kg</div><div class="l">${c.s_kg}</div></div>` +
+    `<div class="stat"><div class="v">${eur(m.mid)}</div><div class="l">${c.s_cost}</div></div>` +
+    `<div class="stat"><div class="v">${nf(m.kw)} kW</div><div class="l">${c.s_kw}</div></div>` +
+    `<div class="stat"><div class="v">${nf(perKg, 1)} €</div><div class="l">${c.s_fill}</div></div>`;
+  $("warn").textContent = m.under ? c.w_under : "";
+}
+document.querySelectorAll("#f input, #f select").forEach(el => el.addEventListener("input", render));
+$("power").addEventListener("change", () => { $("eprice").value = $("power").value === "genset" ? 1.6 : 0.15; render(); });
+$("eprice").value = 0.15;
+buildStatic(); applyPreset("balloon");
+document.querySelectorAll("[data-lang]").forEach(b => b.addEventListener("click", () => setTimeout(() => {
+  buildStatic(); const on = document.querySelector(".chip.on"); if (on) applyPreset(on.dataset.p); else render();
+}, 0)));
+</script>
+</body>
+</html>

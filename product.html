@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRN-10 Refuel Node · Hydrodomus</title>
+  <meta name="description" content="TRN-10 Refuel Node: a towable station that makes hydrogen on site from water and power and fills drone tanks at 350 bar.">
+  <meta property="og:title" content="TRN-10 Refuel Node · Hydrodomus">
+  <meta property="og:description" content="Water and power in, 350 bar hydrogen out. A towable refuelling station for hydrogen drones.">
+  <meta property="og:image" content="https://hydrodomus.com/assets/images/trn10-og.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/images/logo-removebg.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="pr-page">
+
+<nav class="nav" id="main-nav">
+  <a href="./" class="nav-logo">
+    <img src="assets/images/logo-removebg.png" alt="Hydrodomus">
+    <span class="nav-logo-name">Hydrodomus</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./"        class="nav-page-link" data-i18n="nav.home">Accueil</a></li>
+    <li><a href="product"   class="nav-page-link active" data-i18n="nav.product">Produit</a></li>
+    <li><a href="waitlist"  class="nav-page-link" data-i18n="nav.waitlist">Liste d'attente</a></li>
+    <li><a href="contact"   class="nav-page-link" data-i18n="nav.contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close" id="mobile-close">✕</button>
+  <a href="./"       class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
+  <a href="product"  class="mobile-nav-link" data-i18n="nav.product">Produit</a>
+  <a href="waitlist" class="mobile-nav-link" data-i18n="nav.waitlist">Liste d'attente</a>
+  <a href="contact"  class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
+  <div class="mobile-lang">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="pr-hero">
+  <div class="container pr-hero-grid">
+    <div class="pr-hero-text">
+      <span class="pr-tag" data-i18n="pr.tag">Produit</span>
+      <h1 class="pr-title" data-i18n="pr.title">TRN-10 Refuel Node</h1>
+      <p class="pr-sub" data-i18n="pr.sub">Water and power in, 350 bar hydrogen out.</p>
+      <div class="pr-actions">
+        <a class="btn btn-white" href="contact?subject=pilot" data-i18n="pr.cta1">Discuter d’un pilote</a>
+        <a class="pr-link" href="waitlist" data-i18n="pr.cta2">Liste d'attente</a>
+      </div>
+    </div>
+    <figure class="pr-render">
+      <img class="pr-photo" src="assets/images/trn10-hero.jpg" alt="The TRN-10 Refuel Node, a closed trailer-mounted hydrogen refuelling unit, parked on a gravel airfield at sunrise with a drone in the background" width="2000" height="1116" fetchpriority="high">
+      <figcaption data-i18n="pr.stage">Rendering.</figcaption>
+    </figure>
+  </div>
+</header>
+
+<!-- HOW TO USE -->
+<section class="pr-section pr-use">
+  <div class="container">
+    <span class="pr-kicker" data-i18n="pr.use.tag">How to use it</span>
+    <h2 class="pr-h2" data-i18n="pr.use.title"></h2>
+    <ol class="pr-use-grid">
+      <li class="reveal">
+        <figure><img src="assets/images/use-1-park.jpg" alt="An operator lowers the rear stabiliser of the unhitched unit while the towing pickup drives away" width="1200" height="896" loading="lazy"></figure>
+        <span class="pr-step-n">01</span>
+        <h3 data-i18n="pr.u1.t"></h3>
+        <p data-i18n="pr.u1.p"></p>
+      </li>
+      <li class="reveal">
+        <figure><img src="assets/images/use-2-connect.jpg" alt="An operator connects a water hose and a power cable to the unit, with a water tank and a generator nearby" width="1200" height="896" loading="lazy"></figure>
+        <span class="pr-step-n">02</span>
+        <h3 data-i18n="pr.u2.t"></h3>
+        <p data-i18n="pr.u2.p"></p>
+      </li>
+      <li class="reveal">
+        <figure><img src="assets/images/use-3-start.jpg" alt="An operator presses the green start button on the outside control panel of the unit" width="1200" height="896" loading="lazy"></figure>
+        <span class="pr-step-n">03</span>
+        <h3 data-i18n="pr.u3.t"></h3>
+        <p data-i18n="pr.u3.p"></p>
+      </li>
+      <li class="reveal">
+        <figure><img src="assets/images/use-4-refuel.jpg" alt="An operator connects the refuelling hose from the unit to the tank port of a fixed-wing drone" width="1200" height="896" loading="lazy"></figure>
+        <span class="pr-step-n">04</span>
+        <h3 data-i18n="pr.u4.t"></h3>
+        <p data-i18n="pr.u4.p"></p>
+      </li>
+    </ol>
+    <p class="pr-note pr-use-note" data-i18n="pr.use.note"></p>
+  </div>
+</section>
+
+<!-- FIGURES -->
+<section class="pr-section pr-figs">
+  <div class="container pr-figs-grid">
+    <div>
+      <span class="pr-kicker" data-i18n="pr.fig.tag">Chiffres clés</span>
+      <h2 class="pr-h2" data-i18n="pr.fig.title"></h2>
+      <p class="pr-note" data-i18n="pr.fig.note"></p>
+    </div>
+    <dl class="pr-figures">
+      <div class="reveal"><dt data-i18n="pr.fig1.v"></dt><dd data-i18n="pr.fig1.l"></dd></div>
+      <div class="reveal"><dt data-i18n="pr.fig2.v"></dt><dd data-i18n="pr.fig2.l"></dd></div>
+      <div class="reveal"><dt data-i18n="pr.fig3.v"></dt><dd data-i18n="pr.fig3.l"></dd></div>
+      <div class="reveal"><dt data-i18n="pr.fig4.v"></dt><dd data-i18n="pr.fig4.l"></dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- FIELD -->
+<section class="pr-section pr-field">
+  <div class="container pr-field-grid">
+    <div>
+      <span class="pr-kicker" data-i18n="pr.field.tag">Conçu pour le terrain</span>
+      <h2 class="pr-h2" data-i18n="pr.field.title"></h2>
+    </div>
+    <ul class="pr-rows">
+      <li class="reveal"><h3 data-i18n="pr.f1.t"></h3><p data-i18n="pr.f1.p"></p></li>
+      <li class="reveal"><h3 data-i18n="pr.f2.t"></h3><p data-i18n="pr.f2.p"></p></li>
+      <li class="reveal"><h3 data-i18n="pr.f3.t"></h3><p data-i18n="pr.f3.p"></p></li>
+      <li class="reveal"><h3 data-i18n="pr.f4.t"></h3><p data-i18n="pr.f4.p"></p></li>
+      <li class="reveal"><h3 data-i18n="pr.f5.t"></h3><p data-i18n="pr.f5.p"></p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- STATUS -->
+<section class="pr-section pr-status">
+  <div class="container">
+    <span class="pr-kicker" data-i18n="pr.st.tag">Où nous en sommes</span>
+    <h2 class="pr-h2" data-i18n="pr.st.title"></h2>
+    <ol class="pr-timeline">
+      <li class="is-now reveal"><span data-i18n="pr.st1.k"></span><p data-i18n="pr.st1.p"></p></li>
+      <li class="reveal"><span data-i18n="pr.st2.k"></span><p data-i18n="pr.st2.p"></p></li>
+      <li class="reveal"><span data-i18n="pr.st3.k"></span><p data-i18n="pr.st3.p"></p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="pr-section pr-cta">
+  <div class="container pr-cta-inner">
+    <h2 class="pr-h2" data-i18n="pr.cta.title"></h2>
+    <p data-i18n="pr.cta.p"></p>
+    <a class="btn btn-white" href="contact?subject=pilot" data-i18n="pr.cta.btn">Nous écrire</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <img src="assets/images/logo-removebg.png" alt="Hydrodomus">
+          <span>Hydrodomus</span>
+        </div>
+        <p data-i18n="ft.tagline">Hydrogène sur site.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="ft.nav">Navigation</h4>
+        <ul>
+          <li><a href="./"       data-i18n="nav.home">Accueil</a></li>
+          <li><a href="product"  data-i18n="nav.product">Produit</a></li>
+          <li><a href="waitlist" data-i18n="nav.waitlist">Liste d'attente</a></li>
+          <li><a href="contact"  data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="ft.contact">Contact</h4>
+        <ul>
+          <li><a href="mailto:contact@hydrodomus.com">contact@hydrodomus.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="ft.copy">© 2026 Hydrodomus. Tous droits réservés.</p>
+      <div class="footer-badges">
+        <a class="footer-badge" href="https://www.frenchtech-grandparis.com" target="_blank" rel="noopener">
+          <span data-i18n="ft.frenchtech">Membre de</span>
+          <img src="assets/images/logo-frenchtech-grandparis.png" alt="La French Tech Grand Paris">
+        </a>
+        <a class="footer-badge footer-badge-onshape" href="https://www.onshape.com" target="_blank" rel="noopener">
+          <img src="assets/images/onshape-startup-program-badge.png" alt="Onshape Startup Program">
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

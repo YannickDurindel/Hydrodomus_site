@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-li18n="hub.pagetitle">Learn · Hydrodomus Academy</title>
+  <meta name="description" content="Tout ce qu'il faut savoir sur l'hydrogène, la science, l'industrie et le futur de la mobilité.">
+  <link rel="icon" href="../assets/images/logo-removebg.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .pitch-card {
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+      background: linear-gradient(135deg, var(--navy-2) 0%, var(--navy) 70%);
+      color: #fff;
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2.75rem;
+      box-shadow: var(--shadow-lg);
+      margin: -40px auto 2rem;
+      position: relative; z-index: 10; overflow: hidden;
+      flex-wrap: wrap;
+    }
+    .pitch-card-text .section-tag { color: rgba(255,255,255,0.55); }
+    .pitch-card-text .section-tag::before { background: rgba(255,255,255,0.45); }
+    .pitch-card h2 { color: #fff; margin-bottom: 0.5rem; font-size: 1.5rem; }
+    .pitch-card p { color: rgba(255,255,255,0.7); margin: 0; max-width: 480px; }
+    .pitch-card .btn { flex-shrink: 0; }
+    .pitch-links { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; margin: 0.9rem 0 2rem; }
+    .pitch-links a { font-size: 0.95rem; font-weight: 600; color: var(--navy, #0c0a8c); text-decoration: none; border-bottom: 1px solid currentColor; }
+
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+      margin: 0 auto 4rem;
+      position: relative;
+      z-index: 10;
+    }
+    .path-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .path-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+    .path-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--blue-light);
+      color: var(--blue);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .path-card h2 { margin-bottom: 1rem; font-size: 1.5rem; }
+    .path-card p { color: var(--text-3); margin-bottom: 2rem; flex-grow: 1; }
+    .path-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .path-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      color: var(--navy);
+      transition: all 0.2s;
+    }
+    .path-link:hover {
+      background: var(--blue-dim);
+      color: var(--blue);
+    }
+    .path-link svg { width: 18px; height: 18px; }
+
+    .external-resources {
+      margin-top: 4rem;
+      padding: 4rem 0;
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+    }
+  </style>
+<script src="../assets/js/gate.js" data-scope="learn" data-hash="372c37b2df583601b66c5a75e13adf4518c416c86302c4317116685b6ade4d4d"></script>
+</head>
+<body>
+
+<nav class="nav" id="main-nav">
+  <a href="../" class="nav-logo">
+    <img src="../assets/images/logo-removebg.png" alt="Hydrodomus">
+    <span class="nav-logo-name">Hydrodomus</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../" data-i18n="nav.home">Accueil</a></li>
+    <li><a href="../product" data-i18n="nav.product">Produit</a></li>
+    <li><a href="../waitlist" data-i18n="nav.waitlist">Liste d'attente</a></li>
+    <li><a href="../contact" data-i18n="nav.contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close" id="mobile-close">✕</button>
+  <a href="../" class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
+  <a href="../product" class="mobile-nav-link" data-i18n="nav.product">Produit</a>
+  <a href="../waitlist" class="mobile-nav-link" data-i18n="nav.waitlist">Liste d'attente</a>
+  <a href="../contact" class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
+  <div class="mobile-lang">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</div>
+
+<section class="section-white" style="padding-top: calc(var(--section-py) + 3.5rem);">
+  <div class="container">
+
+    <div class="learn-grid">
+      <!-- BUSINESS TRACK -->
+      <div class="path-card reveal">
+        <div class="path-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h2 data-li18n="track.business.title">Business & Stratégie</h2>
+        <p data-li18n="track.business.desc">Comprendre l'économie de l'hydrogène, l'opportunité de marché et pourquoi la production sur site est l'avenir de la logistique énergétique pour les systèmes sans équipage.</p>
+        <div class="path-links">
+          <a href="market" class="path-link">
+            <span data-li18n="link.market">Marché & Industrie</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- SCIENCE TRACK -->
+      <div class="path-card reveal d1">
+        <div class="path-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h2 data-li18n="track.science.title">Science & Ingénierie</h2>
+        <p data-li18n="track.science.desc">Plongée dans l'électrochimie et la thermodynamique de la production d'hydrogène.</p>
+        <div class="path-links">
+          <a href="science" class="path-link">
+            <span data-li18n="link.science">Science de l'Hydrogène</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="external-resources reveal d2">
+      <div class="container" style="text-align: center;">
+        <h2 class="section-title" data-li18n="ext.title">Ressources Externes</h2>
+        <p class="section-sub" style="margin: 1rem auto 3rem;" data-li18n="ext.sub">Vidéos et sources recommandées pour approfondir vos connaissances.</p>
+        <a href="resources" class="btn btn-primary" data-li18n="ext.btn">Voir les ressources ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="margin-top: 4rem;">
+  <div class="container">
+    <div class="footer-bottom">
+      <p data-li18n="footer.copy">© 2026 Hydrodomus</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  window.LEARN_I18N = {
+    fr: {
+      'hub.pagetitle': 'Learn · Hydrodomus Academy',
+      'track.business.title': 'Business & Stratégie',
+      'track.business.desc': "Comprendre l'économie de l'hydrogène, l'opportunité de marché et pourquoi la production sur site est l'avenir de la logistique énergétique pour les systèmes sans équipage.",
+      'link.market': 'Marché & Industrie',
+      'track.science.title': 'Science & Ingénierie',
+      'track.science.desc': "Plongée dans l'électrochimie et la thermodynamique de la production d'hydrogène.",
+      'link.science': "Science de l'Hydrogène",
+      'ext.title': 'Ressources Externes',
+      'ext.sub': 'Vidéos et sources recommandées pour approfondir vos connaissances.',
+      'ext.btn': 'Voir les ressources ↗',
+      'footer.copy': '© 2026 Hydrodomus',
+    },
+    en: {
+      'hub.pagetitle': 'Learn · Hydrodomus Academy',
+      'track.business.title': 'Business & Strategy',
+      'track.business.desc': "Understand hydrogen economics, the market opportunity, and why on-site production is the future of energy logistics for uncrewed systems.",
+      'link.market': 'Market & Industry',
+      'track.science.title': 'Science & Engineering',
+      'track.science.desc': 'Plongée dans l'électrochimie et la thermodynamique de la production d'hydrogène.',
+      'link.science': 'Hydrogen Science',
+      'ext.title': 'External Resources',
+      'ext.sub': 'Recommended videos and sources to deepen your knowledge.',
+      'ext.btn': 'View resources ↗',
+      'footer.copy': '© 2026 Hydrodomus',
+    },
+  };
+</script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/learn-i18n.js"></script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-li18n="pagetitle">Marché & Industrie · Hydrodomus Learn</title>
+  <link rel="icon" href="../assets/images/logo-removebg.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    .article-container { max-width: 800px; margin: 4rem auto; padding: 0 2rem; }
+    .article-header { margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 2rem; }
+    .article-header h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+    .article-body h2 { margin: 3rem 0 1.5rem; font-size: 1.75rem; border-left: 4px solid var(--blue); padding-left: 1rem; }
+    .article-body p { margin-bottom: 1.5rem; font-size: 1.1rem; color: var(--text-2); line-height: 1.8; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.95rem;
+    }
+    .data-table th, .data-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+    .data-table th { background: var(--bg-alt); font-weight: 700; color: var(--navy); }
+
+    .market-box {
+      background: var(--navy);
+      color: white;
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      margin: 3rem 0;
+    }
+    .market-box h3 { color: white; margin-bottom: 1.5rem; }
+    .market-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+    }
+    .market-stat-item { display: flex; flex-direction: column; gap: 0.5rem; }
+    .market-stat-value { font-size: 2rem; font-weight: 700; color: var(--blue-mid); }
+    .market-stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; font-weight: 600; color: var(--blue); }
+  </style>
+<script src="../assets/js/gate.js" data-scope="learn" data-hash="372c37b2df583601b66c5a75e13adf4518c416c86302c4317116685b6ade4d4d"></script>
+</head>
+<body>
+
+<nav class="nav nav-minimal" id="main-nav">
+  <a href="../" class="nav-logo">
+    <img src="../assets/images/logo-removebg.png" alt="Hydrodomus">
+    <span class="nav-logo-name">Hydrodomus</span>
+  </a>
+  <div class="nav-right">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</nav>
+
+<div class="article-container">
+  <a href="./" class="back-link">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    <span data-li18n="back">Retour au hub Learn</span>
+  </a>
+
+  <header class="article-header">
+    <span class="section-tag" data-li18n="tag">Business & Stratégie</span>
+    <h1 data-li18n="h1">Analyse du Marché Hydrogène</h1>
+    <p class="section-sub" data-li18n="sub">Le paradoxe de l'infrastructure et l'opportunité de la recharge décentralisée.</p>
+  </header>
+
+  <div class="article-body">
+    <p data-li18n="p1">Le marché du ravitaillement hydrogène sur site se situe à l'intersection de l'adoption des drones à pile à combustible et du fossé logistique : le carburant est difficile à acheminer là où ces systèmes opèrent. Il est encore émergent, mais structurellement inévitable à mesure que les drones à hydrogène gagnent en maturité.</p>
+
+    <h2 data-li18n="h2.1">Le paradoxe logistique</h2>
+    <p data-li18n="p2">L'hydrogène offre aux drones une endurance bien supérieure à celle des batteries, mais les opérateurs ne peuvent pas l'utiliser à grande échelle sans moyen fiable de se ravitailler sur le terrain. Livrer des bouteilles est lent, coûteux et exposé aux ruptures d'approvisionnement.</p>
+    <p data-li18n-html="p3">État actuel (2026) : Les programmes de drones à hydrogène passent de la démonstration aux premiers déploiements, alors que le ravitaillement dépend encore de bouteilles livrées et d'infrastructures industrielles fixes.</p>
+    <p data-li18n="p4">Hydrodomus supprime cette dépendance avec un nœud de ravitaillement qui produit l'hydrogène sur site à partir d'eau et d'électricité.</p>
+
+    <h2 data-li18n="h2.2">Le nœud de référence</h2>
+    <p data-li18n="p8">Un nœud de 10 kg d'H₂ par jour, modulaire jusqu'à 25 kg par jour, pensé pour être remorqué d'un site à l'autre et alimenté par un groupe électrogène, le réseau ou le solaire. Les chiffres ci-dessous sont des objectifs de conception.</p>
+
+    <div class="market-box">
+      <h3 data-li18n="sizing.title">Nœud de référence en un coup d'œil</h3>
+      <div class="market-stat-grid">
+        <div class="market-stat-item">
+          <span class="market-stat-label" data-li18n="sizing.tam.label">Production</span>
+          <span class="market-stat-value" data-li18n="tv.1">10 kg/j</span>
+          <span class="market-stat-label" data-li18n="sizing.tam.sub">H₂ par nœud (modulaire jusqu'à 25)</span>
+        </div>
+        <div class="market-stat-item">
+          <span class="market-stat-label" data-li18n="sizing.sam.label">Pression de remplissage</span>
+          <span class="market-stat-value">350 bar</span>
+          <span class="market-stat-label" data-li18n="sizing.sam.sub">Objectif de conception</span>
+        </div>
+        <div class="market-stat-item">
+          <span class="market-stat-label" data-li18n="sizing.som.label">Temps de remplissage</span>
+          <span class="market-stat-value" data-li18n="tv.3">&lt; 5 min</span>
+          <span class="market-stat-label" data-li18n="sizing.som.sub">Par réservoir de drone (objectif)</span>
+        </div>
+      </div>
+    </div>
+
+    <h2 data-li18n="h2.3">Leviers de croissance</h2>
+    <p data-li18n-html="p5">1. Investissement dans les systèmes sans équipage : Les budgets de défense et de sécurité en Europe accélèrent l'adoption des drones longue endurance. La stratégie hydrogène de l'UE vise par ailleurs 40 GW de capacité d'électrolyse d'ici 2030.</p>
+    <p data-li18n-html="p6">2. Maturité des plateformes : Les drones à pile à combustible atteignent une maturité opérationnelle. Ces constructeurs ont besoin d'une solution comme Hydrodomus pour que leurs clients puissent réellement opérer sur le terrain.</p>
+    <p data-li18n-html="p7">3. Autonomie sur le terrain : Produire son propre carburant à partir d'eau et de l'énergie disponible localement supprime la dépendance aux convois de ravitaillement, un argument majeur de résilience.</p>
+  </div>
+</div>
+
+<footer style="background: var(--bg-alt); padding: 4rem 0;">
+  <div class="container" style="text-align: center;">
+    <p data-li18n="footer">© 2026 Hydrodomus</p>
+  </div>
+</footer>
+
+<script>
+  window.LEARN_I18N = {
+    fr: {
+      "pagetitle": "Marché & Industrie · Hydrodomus Learn",
+      "back": "Retour au hub Learn",
+      "tag": "Business & Stratégie",
+      "h1": "Analyse du Marché Hydrogène",
+      "sub": "Le paradoxe logistique et l'opportunité du ravitaillement décentralisé.",
+      "p1": "Le marché du ravitaillement hydrogène sur site se situe à l'intersection de l'adoption des drones à pile à combustible et du fossé logistique : le carburant est difficile à acheminer là où ces systèmes opèrent. Il est encore émergent, mais structurellement inévitable à mesure que les drones à hydrogène gagnent en maturité.",
+      "h2.1": "Le paradoxe logistique",
+      "p2": "L'hydrogène offre aux drones une endurance bien supérieure à celle des batteries, mais les opérateurs ne peuvent pas l'utiliser à grande échelle sans moyen fiable de se ravitailler sur le terrain. Livrer des bouteilles est lent, coûteux et exposé aux ruptures d'approvisionnement.",
+      "p3": "<strong>État actuel (2026) :</strong> Les programmes de drones à hydrogène passent de la démonstration aux premiers déploiements, alors que le ravitaillement dépend encore de bouteilles livrées et d'infrastructures industrielles fixes.",
+      "p4": "Hydrodomus supprime cette dépendance avec un nœud de ravitaillement qui produit l'hydrogène sur site à partir d'eau et d'électricité.",
+      "h2.2": "Le nœud de référence",
+      "h2.3": "Leviers de croissance",
+      "p5": "<strong>1. Investissement dans les systèmes sans équipage :</strong> Les budgets de défense et de sécurité en Europe accélèrent l'adoption des drones longue endurance. La stratégie hydrogène de l'UE vise par ailleurs 40 GW de capacité d'électrolyse d'ici 2030.",
+      "p6": "<strong>2. Maturité des plateformes :</strong> Les drones à pile à combustible atteignent une maturité opérationnelle. Ces constructeurs ont besoin d'une solution comme Hydrodomus pour que leurs clients puissent réellement opérer sur le terrain.",
+      "p7": "<strong>3. Autonomie sur le terrain :</strong> Produire son propre carburant à partir d'eau et de l'énergie disponible localement supprime la dépendance aux convois de ravitaillement, un argument majeur de résilience.",
+      "p8": "Un nœud de 10 kg d'H₂ par jour, modulaire jusqu'à 25 kg par jour, pensé pour être remorqué d'un site à l'autre et alimenté par un groupe électrogène, le réseau ou le solaire. Les chiffres ci-dessous sont des objectifs de conception.",
+      "sizing.title": "Nœud de référence en un coup d'œil",
+      "sizing.tam.label": "Production",
+      "tv.1": "10 kg/j",
+      "sizing.tam.sub": "H₂ par nœud (modulaire jusqu'à 25)",
+      "sizing.sam.label": "Pression de remplissage",
+      "sizing.sam.sub": "Objectif de conception",
+      "sizing.som.label": "Temps de remplissage",
+      "tv.3": "< 5 min",
+      "sizing.som.sub": "Par réservoir de drone (objectif)",
+      "footer": "© 2026 Hydrodomus",
+    },
+    en: {
+      "pagetitle": "Market & Industry · Hydrodomus Learn",
+      "back": "Back to Learn hub",
+      "tag": "Business & Strategy",
+      "h1": "Hydrogen Market Analysis",
+      "sub": "The logistics paradox and the opportunity of decentralized refueling.",
+      "p1": "The on-site hydrogen refueling market sits at the intersection of fuel cell drone adoption and the logistics gap: fuel is hard to deliver to where these systems operate. It is still emerging, but structurally inevitable as hydrogen drones mature.",
+      "h2.1": "The logistics paradox",
+      "p2": "Hydrogen gives drones far longer endurance than batteries, but operators can't use it at scale without a reliable way to refuel in the field. Delivering cylinders is slow, costly, and exposed to supply disruption.",
+      "p3": "<strong>Current state (2026):</strong> Hydrogen drone programs are moving from demonstration to early deployment, while refueling still depends on delivered cylinders and fixed industrial infrastructure.",
+      "p4": "Hydrodomus removes that dependency with a refueling node that produces hydrogen on site from water and electricity.",
+      "h2.2": "The reference node",
+      "p8": "A node producing 10 kg of H₂ per day, modular up to 25 kg per day, designed to be towed between sites and powered by a generator, grid, or solar. The figures below are design targets.",
+      "sizing.title": "Reference node at a glance",
+      "sizing.tam.label": "Output",
+      "tv.1": "10 kg/day",
+      "sizing.tam.sub": "H₂ per node (modular up to 25)",
+      "sizing.sam.label": "Fill pressure",
+      "sizing.sam.sub": "Design target",
+      "sizing.som.label": "Fill time",
+      "tv.3": "< 5 min",
+      "sizing.som.sub": "Per drone tank (target)",
+      "h2.3": "Growth drivers",
+      "p5": "<strong>1. Investment in uncrewed systems:</strong> European defense and security budgets are accelerating adoption of long-endurance drones. The EU hydrogen strategy also targets 40 GW of electrolysis capacity by 2030.",
+      "p6": "<strong>2. Platform maturity:</strong> Fuel cell drones are reaching operational maturity. These manufacturers need a solution like Hydrodomus so their customers can actually operate in the field.",
+      "p7": "<strong>3. Self-sufficiency in the field:</strong> Producing your own fuel from water and locally available power removes dependence on fuel convoys, a major resilience argument.",
+      "footer": "© 2026 Hydrodomus",
+    },
+  };
+</script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/learn-i18n.js"></script>
+</body>
+</html>
