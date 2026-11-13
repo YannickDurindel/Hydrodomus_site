@@ -310,7 +310,7 @@ hr.section-divider {
 }
 
 /* =========================================
-   PLACEHOLDER PAGE (home / how-it-works / waitlist)
+   PLACEHOLDER PAGE (home)
    ========================================= */
 .placeholder-hero {
   min-height: calc(100vh - 64px);
@@ -567,80 +567,6 @@ footer {
 }
 .hiring-box-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.75rem; }
 .hiring-box p { font-size: 0.875rem; color: var(--text-3); line-height: 1.7; }
-
-/* =========================================
-   WAITLIST — one-question-at-a-time flow
-   ========================================= */
-.qflow-section {
-  min-height: calc(100vh - 64px);
-  display: flex; align-items: center; justify-content: center;
-  background: var(--white);
-  padding: 7rem 2rem 4rem;
-}
-.qflow-wrap { width: 100%; max-width: 560px; }
-.qflow-progress {
-  display: flex; gap: 0.4rem; margin-bottom: 2.25rem;
-}
-.qflow-dot {
-  height: 4px; flex: 1; border-radius: 4px;
-  background: var(--border); transition: background 0.2s, box-shadow 0.2s;
-}
-.qflow-dot.done { background: var(--blue); }
-.qflow-dot.current { background: var(--blue); box-shadow: 0 0 0 3px rgba(20,78,224,0.18); }
-.qflow-card {
-  animation: qflowIn 0.35s ease;
-}
-@keyframes qflowIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.qflow-eyebrow {
-  font-size: 0.76rem; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--blue); margin-bottom: 0.875rem;
-}
-.qflow-question {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
-  font-weight: 700; letter-spacing: -0.025em;
-  color: var(--navy); margin-bottom: 1.75rem; line-height: 1.2;
-}
-.qflow-input {
-  width: 100%;
-  background: var(--white); border: 1.5px solid var(--border);
-  border-radius: var(--radius); padding: 1rem 1.25rem;
-  color: var(--text); font-family: var(--font-body);
-  font-size: 1.1rem; transition: all 0.15s; outline: none;
-}
-.qflow-input:hover { border-color: var(--border-2); }
-.qflow-input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(20,78,224,0.12); }
-.qflow-error { font-size: 0.82rem; color: var(--red); margin-top: 0.6rem; min-height: 1.2em; }
-.qflow-choices { display: flex; flex-direction: column; gap: 0.75rem; }
-.qflow-choice-btn {
-  display: block; width: 100%; text-align: left;
-  padding: 1.05rem 1.25rem;
-  border: 1.5px solid var(--border); border-radius: var(--radius);
-  background: var(--white); color: var(--navy);
-  font-family: var(--font-body); font-size: 0.975rem; font-weight: 500;
-  cursor: pointer; transition: border-color 0.15s, background 0.15s, transform 0.15s, box-shadow 0.15s;
-}
-.qflow-choice-btn:hover { border-color: var(--blue); background: var(--blue-dim); transform: translateY(-1px); box-shadow: var(--shadow-sm); }
-.qflow-choice-btn:active { transform: translateY(0) scale(0.99); }
-.qflow-choice-btn.selected { border-color: var(--blue); background: var(--blue-dim); color: var(--blue); font-weight: 600; box-shadow: var(--shadow-sm); }
-.qflow-actions {
-  display: flex; align-items: center; gap: 1.25rem; margin-top: 1.5rem;
-}
-.qflow-back {
-  font-size: 0.85rem; color: var(--text-3); cursor: pointer;
-  background: none; border: none; font-family: inherit;
-}
-.qflow-back:hover { color: var(--navy); }
-.qflow-hint { font-size: 0.78rem; color: var(--text-4); }
-.qflow-done { text-align: center; }
-.qflow-done-title {
-  font-family: var(--font-display); font-size: clamp(1.6rem, 3.4vw, 2.2rem);
-  font-weight: 700; color: var(--navy); margin-bottom: 0.875rem;
-}
-.qflow-done-sub { font-size: 1rem; color: var(--text-3); line-height: 1.7; }
 
 /* =========================================
    SCROLL REVEAL
