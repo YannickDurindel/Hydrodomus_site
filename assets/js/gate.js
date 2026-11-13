@@ -26,7 +26,7 @@
     #gate-overlay h1 { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 1.3rem; margin: 0 0 .4rem; color: #0B1220; }
     #gate-overlay p { margin: 0 0 1.2rem; color: #5b6472; font-size: .9rem; }
     #gate-overlay input { width: 100%; box-sizing: border-box; padding: .8rem 1rem; border: 1px solid #cfd6e0; border-radius: 8px; font-size: 1rem; letter-spacing: .08em; }
-    #gate-overlay button { width: 100%; margin-top: .8rem; padding: .8rem; border: 0; border-radius: 8px; background: #144EE0; color: #fff; font-weight: 600; font-size: 1rem; cursor: pointer; }
+    #gate-overlay button { width: 100%; margin-top: .8rem; padding: .8rem; border: 0; border-radius: 8px; background: #0173AD; color: #fff; font-weight: 600; font-size: 1rem; cursor: pointer; }
     #gate-overlay .gate-err { color: #c0392b; font-size: .85rem; margin-top: .6rem; min-height: 1.1em; }`;
   document.head.appendChild(style);
 

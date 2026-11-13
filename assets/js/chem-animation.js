@@ -320,7 +320,7 @@
 
   function membraneSweep(lineX) {
     ctx.globalAlpha = 0.55;
-    ctx.strokeStyle = '#144EE0';
+    ctx.strokeStyle = '#0188CC';
     ctx.setLineDash([6, 6]);
     ctx.lineWidth = 2;
     ctx.beginPath();
@@ -552,7 +552,7 @@
       ctx.clip();
       const grad = ctx.createLinearGradient(bx, by, bx, by + bh);
       grad.addColorStop(0, 'rgba(255,255,255,0.5)');
-      grad.addColorStop(0.55, 'rgba(20,78,224,0.07)');
+      grad.addColorStop(0.55, 'rgba(1,136,204,0.07)');
       grad.addColorStop(1, 'rgba(11,18,32,0.10)');
       ctx.globalAlpha = boxA;
       ctx.fillStyle = grad;

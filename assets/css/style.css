@@ -14,10 +14,12 @@
   --navy-2:   #16233A;
   --navy-3:   #24344F;
 
-  --blue:       #144EE0;
-  --blue-mid:   #0F3AAE;
-  --blue-light: #EBF1FF;
-  --blue-dim:   rgba(20, 78, 224, 0.09);
+  --brand:      #0188CC;  /* logo azure: decorative, large text, on dark backgrounds */
+  --brand-grey: #4A4D4E;  /* logo grey */
+  --blue:       #0173AD;  /* logo azure darkened for readable text and buttons on light backgrounds (5.2:1) */
+  --blue-mid:   #015E8E;
+  --blue-light: #E6F3FA;
+  --blue-dim:   rgba(1, 136, 204, 0.10);
 
   --green:       #059669;
   --green-light: #ECFDF5;
@@ -334,7 +336,7 @@ hr.section-divider {
 .placeholder-eyebrow {
   display: inline-flex; align-items: center; gap: 0.5rem;
   background: var(--blue-light);
-  border: 1px solid rgba(20,78,224,0.18);
+  border: 1px solid rgba(1,136,204,0.18);
   padding: 0.35rem 0.875rem;
   border-radius: var(--radius-sm);
   font-size: 0.76rem; font-weight: 700;
@@ -529,7 +531,7 @@ footer {
 .form-input:hover, .form-textarea:hover, .form-select:hover { border-color: var(--border-2); }
 .form-input:focus, .form-textarea:focus, .form-select:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(20,78,224,0.12);
+  box-shadow: 0 0 0 3px rgba(1,136,204,0.12);
 }
 .form-textarea { min-height: 140px; resize: vertical; }
 .form-select {
@@ -562,7 +564,7 @@ footer {
 .contact-info-value { font-size: 0.9rem; color: var(--navy); font-weight: 500; }
 .hiring-box {
   padding: 1.75rem; background: var(--blue-dim);
-  border: 1px solid rgba(20,78,224,0.18);
+  border: 1px solid rgba(1,136,204,0.18);
   border-radius: var(--radius); margin-top: 1.75rem;
 }
 .hiring-box-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.75rem; }
@@ -612,7 +614,7 @@ footer {
 /* =========================================
    PRODUCT PAGE v2 (body.pv2)
    ========================================= */
-.pv2 { --accent: #1A73D9; --accent-dark: #1560B8; --accent-bright: #6AAEF5; --ink: #0B1220; --mist: #F4F5F7; }
+.pv2 { --accent: var(--blue); --accent-dark: var(--blue-mid); --accent-bright: #4DB3EA; --ink: #0B1220; --mist: #F4F5F7; }
 .pv2-h2 {
   font-family: var(--font-display); font-weight: 600; letter-spacing: -0.03em; line-height: 1.1;
   font-size: clamp(1.8rem, 3.4vw, 2.8rem); color: var(--ink); max-width: 20ch;
@@ -661,7 +663,7 @@ footer {
 /* how to use: stepper */
 .pv2-use { background: var(--mist); }
 .pv2-steps { position: relative; list-style: none; margin: 3.5rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.75rem; }
-.pv2-steps::before { content: ''; position: absolute; top: 21px; left: 22px; right: calc(25% - 1.75rem + 22px); height: 2px; background: linear-gradient(90deg, var(--accent), rgba(26,115,217,0.25)); }
+.pv2-steps::before { content: ''; position: absolute; top: 21px; left: 22px; right: calc(25% - 1.75rem + 22px); height: 2px; background: linear-gradient(90deg, var(--accent), rgba(1,136,204,0.25)); }
 .pv2-steps li { position: relative; }
 .pv2-step-n { position: relative; z-index: 1; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; box-shadow: 0 0 0 6px var(--mist); }
 .pv2-steps figure { margin: 1.25rem 0 1.1rem; border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 3; background: #dde1e7; }
@@ -684,7 +686,7 @@ footer {
 .pv2-timeline li { position: relative; padding-top: 1.75rem; border-top: 2px solid var(--border-2); }
 .pv2-timeline li.is-now { border-top-color: var(--accent); }
 .pv2-timeline li::before { content: ''; position: absolute; top: -6px; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--border-2); }
-.pv2-timeline li.is-now::before { background: var(--accent); box-shadow: 0 0 0 5px rgba(26,115,217,0.15); }
+.pv2-timeline li.is-now::before { background: var(--accent); box-shadow: 0 0 0 5px rgba(1,136,204,0.15); }
 .pv2-timeline span { display: block; font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; color: var(--ink); margin-bottom: 0.6rem; }
 .pv2-timeline p { color: var(--text-3); line-height: 1.65; max-width: 30ch; }
 
@@ -718,7 +720,7 @@ footer {
 @media (max-width: 640px) {
   .pv2-steps { grid-template-columns: 1fr; gap: 0; }
   .pv2-steps li { padding: 0 0 2.5rem 64px; }
-  .pv2-steps li::after { content: ''; position: absolute; left: 21px; top: 44px; bottom: 0; width: 2px; background: rgba(26,115,217,0.25); }
+  .pv2-steps li::after { content: ''; position: absolute; left: 21px; top: 44px; bottom: 0; width: 2px; background: rgba(1,136,204,0.25); }
   .pv2-steps li:last-child::after { display: none; }
   .pv2-step-n { position: absolute; left: 0; top: 0; }
   .pv2-steps figure { margin-top: 0; }
@@ -763,8 +765,6 @@ footer {
 .footer-legal:hover { text-decoration: underline; }
 .legal-updated { margin-top: 2.5rem; font-size: 0.85rem; color: var(--text-3) !important; }
 
-/* homepage: product button and legal link over the animation */
-.chem-cta { pointer-events: auto; display: inline-block; margin-top: 1.5rem; padding: 0.85rem 1.5rem; border-radius: 6px; background: var(--navy); color: #fff; font-weight: 600; font-size: 0.95rem; transition: background .2s, transform .2s; }
-.chem-cta:hover { background: var(--navy-3); transform: translateY(-1px); }
+/* homepage: legal link over the animation */
 .chem-legal { position: absolute; right: 1.25rem; bottom: 0.9rem; z-index: 3; font-size: 0.75rem; color: var(--text-3); }
 .chem-legal:hover { color: var(--navy); }
