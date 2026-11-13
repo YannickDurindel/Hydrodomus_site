@@ -768,3 +768,33 @@ footer {
 /* homepage: legal link over the animation */
 .chem-legal { position: absolute; right: 1.25rem; bottom: 0.9rem; z-index: 3; font-size: 0.75rem; color: var(--text-3); }
 .chem-legal:hover { color: var(--navy); }
+
+/* =========================================
+   ABOUT PAGE
+   ========================================= */
+.ab-hero { background: var(--ink, #0B1220); color: #fff; padding: calc(64px + clamp(3.5rem, 8vw, 6rem)) 0 clamp(3.5rem, 7vw, 5.5rem); }
+.ab-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 4.6vw, 3.8rem); line-height: 1.06; letter-spacing: -0.035em; max-width: 18ch; margin-bottom: 1.25rem; color: #fff; }
+.ab-sub { font-size: clamp(1rem, 1.4vw, 1.15rem); line-height: 1.7; color: rgba(255,255,255,0.75); max-width: 52ch; }
+.ab-founder { background: #fff; }
+.ab-founder-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(2rem, 6vw, 5.5rem); align-items: center; }
+.ab-photo { margin: 0; border-radius: 16px; overflow: hidden; background: var(--bg-alt); aspect-ratio: 2 / 3; max-width: 380px; box-shadow: 0 24px 60px rgba(11,18,32,0.18); }
+.ab-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ab-role { margin: 0.5rem 0 1.25rem; font-weight: 600; color: var(--blue); }
+.ab-p { color: var(--text-2); line-height: 1.75; max-width: 54ch; }
+.ab-cv { list-style: none; margin: 1.75rem 0; padding: 0; border-top: 2px solid var(--ink, #0B1220); }
+.ab-cv li { padding: 0.85rem 0; border-bottom: 1px solid var(--border); color: var(--text-2); }
+.ab-link { color: var(--blue); font-weight: 600; }
+.ab-company { background: var(--mist, #F4F5F7); }
+.ab-facts { margin: 2.5rem 0 0; display: grid; grid-template-columns: repeat(4, 1fr); }
+.ab-facts > div { padding: 1.25rem 1.5rem 1.25rem 0; border-top: 2px solid var(--ink, #0B1220); }
+.ab-facts > div + div { padding-left: 1.5rem; border-left: 1px solid var(--border-2); }
+.ab-facts dt { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3); margin-bottom: 0.5rem; }
+.ab-facts dd { margin: 0; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--ink, #0B1220); }
+.ab-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 2rem; margin-top: 2.5rem; }
+.ab-badges img { height: 52px; width: auto; }
+@media (max-width: 860px) {
+  .ab-founder-grid { grid-template-columns: 1fr; }
+  .ab-photo { max-width: 300px; }
+  .ab-facts { grid-template-columns: 1fr 1fr; row-gap: 1rem; }
+  .ab-facts > div:nth-child(3) { padding-left: 0; border-left: none; }
+}

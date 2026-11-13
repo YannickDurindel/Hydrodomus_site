@@ -60,6 +60,7 @@
   <ul class="nav-links">
     <li><a href="../"             class="nav-page-link" data-i18n="nav.home">Accueil</a></li>
     <li><a href="../product" class="nav-page-link" data-i18n="nav.product">Produit</a></li>
+    <li><a href="../about" class="nav-page-link" data-i18n="nav.about">À propos</a></li>
     <li><a href="../contact"      class="nav-page-link" data-i18n="nav.contact">Contact</a></li>
   </ul>
   <div class="nav-right">
@@ -72,6 +73,7 @@
   <button class="mobile-close" id="mobile-close">✕</button>
   <a href="../"             class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
   <a href="../product" class="mobile-nav-link" data-i18n="nav.product">Produit</a>
+  <a href="../about" class="mobile-nav-link" data-i18n="nav.about">À propos</a>
   <a href="../contact"      class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
   <div class="mobile-lang">
     <button class="lang-btn" data-lang="fr">FR</button>
@@ -280,15 +282,15 @@ const C = {
     w_under: "Note: demand exceeds production; increase storage or stacks.",
     note: "Estimates before our first pilot (early 2027), ±25 %, not a quote. Based on European supplier prices and our pilot bill of materials, including contingency, engineering and business costs. Electrolyser stacks of 2.43 kg/day each; about 55 kWh per kg. Cost per fill spreads the system over the amortisation period at the chosen cadence, plus energy and maintenance. 700 bar figures are less mature than 350 bar.",
     cta: "Discuss your case" },
-  fr: { tag: "Calculateur", title: "Hydrogène sur site : taille, énergie et coût",
+  fr: { tag: "Calculateur", title: "Hydrogène sur site : taille, énergie et coût",
     sub: "Décrivez ce que vous devez remplir. Le calculateur dimensionne l'électrolyseur, le stockage et la compression, et donne puissance, eau, encombrement et coût estimé.",
-    in_case: "Partir d'un cas d'usage", p_balloon: "Gaz de gonflage", p_drone: "Ravitaillement drones", p_truck: "Camion / bus", p_car: "Voiture (700 bar)", p_site: "Alimentation de site",
+    in_case: "Partir d'un cas d'usage", p_balloon: "Gaz de gonflage", p_drone: "Ravitaillement de drones", p_truck: "Camion / bus", p_car: "Voiture (700 bar)", p_site: "Alimentation de site",
     in_amt: "Hydrogène par remplissage", in_fpd: "Remplissages par jour", in_fpd_h: "Moyenne sur les opérations, par ex. 0,5 = un remplissage tous les deux jours.",
     in_deliv: "Pression de livraison", d0: "Basse pression",
     in_store: "Stockage", s_none: "Aucun (direct)", s_lp: "Tampon basse pression", s_hp: "Compressé",
-    in_fillh: "Direct : temps de remplissage visé (h)", in_fillh_h: "Sans stockage, l'électrolyseur est dimensionné pour remplir dans ce temps.",
+    in_fillh: "Direct : temps de remplissage visé (h)", in_fillh_h: "Sans stockage, l'électrolyseur est dimensionné pour remplir dans ce temps.",
     in_opts: "Options",
-    o: { dry: "Séchage du gaz (point de rosée ≤ −40 °C)", purity: "Pureté pile à combustible (ISO 14687)", water: "Traite l'eau brute (osmose + DI)", mobile: "Mobile (remorque ou conteneur)",
+    o: { dry: "Séchage du gaz (point de rosée ≤ −40 °C)", purity: "Pureté pile à combustible (ISO 14687)", water: "Traitement de l'eau brute (osmose + DI)", mobile: "Mobile (remorque ou conteneur)",
          cold: "Pack grand froid (−30 °C)", disp: "Distributeur avec protocole de remplissage", precool: "Pré-refroidissement −40 °C (700 bar rapide)", n2: "Générateur d'azote pour la purge" },
     in_power: "Source d'énergie et prix", opt_grid: "Réseau (€/kWh)", opt_genset: "Groupe électrogène (€/L)", in_years: "Amortissement (années)", in_years_h: "Durée de vie de l'installation.", in_maint: "Maintenance (€ par trimestre, par module de 10 kg/jour)", in_maint_h: "Visite de service, filtres, traitement de l'eau et consommables du sécheur.", p_run: "Coût d'exploitation par kg (énergie + maintenance)", p_amort: "Amortissement par kg",
     hint_kg: (kg, nm3) => `= ${kg} kg = ${nm3} Nm³`, store_forced: "Le remplissage de réservoirs à 350 ou 700 bar demande un stockage compressé.",
@@ -306,9 +308,9 @@ const C = {
          manifold: "Rampe de remplissage basse pression", disp350: "Distributeur 350 bar", disp700: "Distributeur 700 bar", precool: "Groupe de pré-refroidissement" },
     t_hw: "Matériel", t_tot: "Coût du système",
     pf: "Coût par remplissage", pkg: "Coût par kg", pnm3: "Coût par Nm³",
-    w_under: "Attention : la demande dépasse la production ; augmenter le stockage ou les stacks.",
+    w_under: "Attention : la demande dépasse la production ; augmentez le stockage ou les stacks.",
     note: "Estimations avant notre premier pilote (début 2027), ±25 %, pas un devis. Basées sur des prix de fournisseurs européens et notre nomenclature pilote, aléas, ingénierie et frais de structure inclus. Stacks d'électrolyse de 2,43 kg/jour chacun ; environ 55 kWh par kg. Le coût par remplissage amortit le système sur la durée choisie à la cadence indiquée, plus l'énergie et la maintenance. Les chiffres 700 bar sont moins mûrs que ceux à 350 bar.",
-    cta: "Parler de votre cas" }
+    cta: "Parlons de votre cas" }
 };
 const L = () => (localStorage.getItem("hd_lang") === "fr" ? "fr" : "en");
 const nf = (x, d = 0) => x.toLocaleString(L() === "fr" ? "fr-FR" : "en-GB", { maximumFractionDigits: d, minimumFractionDigits: d });
