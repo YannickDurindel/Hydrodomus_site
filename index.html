@@ -3,20 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hydrodomus · On-site hydrogen for drones</title>
-  <meta name="description" content="Hydrodomus builds towable stations that make hydrogen from water and electricity on site, next to the drones and balloons that use it.">
-  <meta property="og:title" content="Hydrodomus · On-site hydrogen for drones">
-  <meta property="og:description" content="Hydrogen where it's needed, not where it's stored. Towable stations that make hydrogen from water and power, on site.">
-  <meta property="og:image" content="https://hydrodomus.com/assets/images/trn10-og.jpg">
-  <meta property="og:type" content="website">
+  <title>Hydrodomus</title>
+  <meta name="description" content="Hydrodomus.">
   <link rel="icon" href="assets/images/logo-removebg.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap">
-  <link rel="preload" as="image" href="assets/images/home-hero-1400.webp" imagesrcset="assets/images/home-hero-800.webp 800w, assets/images/home-hero-1400.webp 1400w, assets/images/home-hero-2400.webp 2400w" imagesizes="100vw">
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body class="pv2 home">
+<body class="canvas-page">
 
 <nav class="nav" id="main-nav">
   <a href="./" class="nav-logo">
@@ -24,9 +19,9 @@
     <span class="nav-logo-name">Hydrodomus</span>
   </a>
   <ul class="nav-links">
-    <li><a href="./"       class="nav-page-link active" data-i18n="nav.home">Accueil</a></li>
+    <li><a href="./"         class="nav-page-link active" data-i18n="nav.home">Accueil</a></li>
     <li><a href="product"  class="nav-page-link" data-i18n="nav.product">Produit</a></li>
-    <li><a href="contact"  class="nav-page-link" data-i18n="nav.contact">Contact</a></li>
+    <li><a href="contact"       class="nav-page-link" data-i18n="nav.contact">Contact</a></li>
   </ul>
   <div class="nav-right">
     <button class="lang-btn" data-lang="fr">FR</button>
@@ -36,177 +31,31 @@
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <button class="mobile-close" id="mobile-close">✕</button>
-  <a href="./"       class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
-  <a href="product"  class="mobile-nav-link" data-i18n="nav.product">Produit</a>
-  <a href="contact"  class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
+  <a href="./"        class="mobile-nav-link" data-i18n="nav.home">Accueil</a>
+  <a href="product" class="mobile-nav-link" data-i18n="nav.product">Produit</a>
+  <a href="contact"      class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
   <div class="mobile-lang">
     <button class="lang-btn" data-lang="fr">FR</button>
     <button class="lang-btn" data-lang="en">EN</button>
   </div>
 </div>
 
-<!-- HERO -->
-<header class="pv2-hero home-hero">
-  <picture class="pv2-hero-media">
-    <source type="image/webp" srcset="assets/images/home-hero-800.webp 800w, assets/images/home-hero-1400.webp 1400w, assets/images/home-hero-2400.webp 2400w" sizes="100vw">
-    <img src="assets/images/home-hero-1400.jpg" srcset="assets/images/home-hero-800.jpg 800w, assets/images/home-hero-1400.jpg 1400w, assets/images/home-hero-2400.jpg 2400w" sizes="100vw" alt="An operator refuels a fixed-wing drone with hydrogen from a Hydrodomus trailer unit on a gravel airfield" width="2400" height="1350" fetchpriority="high">
-  </picture>
-  <div class="pv2-hero-shade" aria-hidden="true"></div>
-  <div class="container pv2-hero-inner">
-    <span class="pv2-eyebrow" data-i18n="home.eyebrow">Hydrogène sur site</span>
-    <h1 class="pv2-title" data-i18n="home.title"></h1>
-    <p class="pv2-sub" data-i18n="home.sub"></p>
-    <div class="pv2-actions">
-      <a class="btn pv2-btn" href="product" data-i18n="home.cta1">Découvrir le TRN-10</a>
-      <a class="pv2-link" href="contact?subject=pilot" data-i18n="pr.cta1">Discuter d’un pilote</a>
-    </div>
+<div class="chem-stage chem-stage-home" id="chem-stage">
+  <canvas id="chem-canvas"></canvas>
+  <div class="chem-hero-text">
+    <div class="chem-hero-scrim" aria-hidden="true"></div>
+    <h1 class="chem-headline" id="chem-headline" data-i18n="home.headline">Décentralisons la production d'hydrogène</h1>
+    <p class="chem-subline" data-i18n="home.subline">Conçu pour le terrain, avec pour cible la norme MIL-STD-810</p>
   </div>
-  <p class="pv2-caption" data-i18n="pr.stage"></p>
-</header>
-
-<!-- TODAY VS WITH HYDRODOMUS -->
-<section class="pv2-section home-compare">
-  <div class="container">
-    <h2 class="pv2-h2" data-i18n="home.cmp.title"></h2>
-    <div class="home-compare-grid">
-      <div class="home-col home-col-before reveal">
-        <span class="home-col-tag" data-i18n="home.cmp.a.tag"></span>
-        <ul>
-          <li data-i18n="home.cmp.a1"></li>
-          <li data-i18n="home.cmp.a2"></li>
-          <li data-i18n="home.cmp.a3"></li>
-        </ul>
-      </div>
-      <div class="home-col home-col-after reveal">
-        <span class="home-col-tag" data-i18n="home.cmp.b.tag"></span>
-        <ul>
-          <li data-i18n="home.cmp.b1"></li>
-          <li data-i18n="home.cmp.b2"></li>
-          <li data-i18n="home.cmp.b3"></li>
-        </ul>
-      </div>
-    </div>
+  <div class="chem-caption-wrap">
+    <div class="chem-caption-title" id="chem-caption-title" data-i18n="chem.s1">Eau non traitée</div>
   </div>
-</section>
-
-<!-- PRODUCT TEASER -->
-<section class="home-product">
-  <div class="container home-product-grid">
-    <a class="home-product-media" href="product">
-      <picture><source type="image/webp" srcset="assets/images/trn10-hero-800.webp 800w, assets/images/trn10-hero-1400.webp 1400w" sizes="(max-width: 760px) 100vw, 55vw"><img src="assets/images/trn10-hero-1400.jpg" alt="The TRN-10 Refuel Node, a closed trailer-mounted hydrogen station" width="1400" height="782" loading="lazy"></picture>
-    </a>
-    <div class="home-product-text">
-      <span class="pv2-kicker home-kicker-light" data-i18n="home.prod.tag"></span>
-      <h2 class="pv2-h2" data-i18n="pr.eyebrow">TRN-10 Refuel Node</h2>
-      <p data-i18n="home.prod.p"></p>
-      <dl class="home-mini-stats">
-        <div><dt data-i18n="pr.k1.v"></dt><dd data-i18n="pr.k1.l"></dd></div>
-        <div><dt data-i18n="pr.k2.v"></dt><dd data-i18n="pr.k2.l"></dd></div>
-        <div><dt data-i18n="pr.k3.v"></dt><dd data-i18n="pr.k3.l"></dd></div>
-      </dl>
-      <a class="pv2-link" href="product" data-i18n="home.prod.link"></a>
-    </div>
+  <div class="chem-progress-track">
+    <div class="chem-progress-bar" id="chem-progress-bar"></div>
   </div>
-</section>
-
-<!-- WHO IT'S FOR -->
-<section class="pv2-section pv2-for">
-  <div class="container pv2-for-grid">
-    <h2 class="pv2-h2" data-i18n="pr.for.title"></h2>
-    <ul class="pv2-for-list">
-      <li class="reveal"><h3 data-i18n="pr.for1.t"></h3><p data-i18n="pr.for1.p"></p></li>
-      <li class="reveal"><h3 data-i18n="pr.for2.t"></h3><p data-i18n="pr.for2.p"></p></li>
-      <li class="reveal"><h3 data-i18n="pr.for3.t"></h3><p data-i18n="pr.for3.p"></p></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="pv2-section home-about">
-  <div class="container home-about-grid">
-    <div>
-      <h2 class="pv2-h2" data-i18n="home.about.title"></h2>
-      <p class="home-about-p" data-i18n="home.about.p"></p>
-      <a class="home-about-link" href="product#status" data-i18n="home.about.link"></a>
-    </div>
-    <div class="home-badges">
-      <a href="https://www.frenchtech-grandparis.com" target="_blank" rel="noopener" class="home-badge">
-        <img src="assets/images/logo-frenchtech-grandparis.png" alt="La French Tech Grand Paris" loading="lazy">
-        <span data-i18n="home.badge1"></span>
-      </a>
-      <a href="https://www.onshape.com" target="_blank" rel="noopener" class="home-badge">
-        <img src="assets/images/onshape-startup-program-badge.png" alt="Onshape Startup Program" loading="lazy">
-        <span data-i18n="home.badge2"></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="pv2-cta">
-  <div class="container pv2-cta-inner">
-    <h2 class="pv2-h2" data-i18n="home.cta.title"></h2>
-    <div>
-      <p data-i18n="home.cta.p"></p>
-      <a class="btn pv2-btn" href="contact?subject=pilot" data-i18n="pr.cta1">Discuter d’un pilote</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="footer-brand-logo">
-          <img src="assets/images/logo-removebg.png" alt="Hydrodomus">
-          <span>Hydrodomus</span>
-        </div>
-        <p data-i18n="ft.tagline">Hydrogène sur site.</p>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="ft.nav">Navigation</h4>
-        <ul>
-          <li><a href="./"       data-i18n="nav.home">Accueil</a></li>
-          <li><a href="product"  data-i18n="nav.product">Produit</a></li>
-          <li><a href="contact"  data-i18n="nav.contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4 data-i18n="ft.contact">Contact</h4>
-        <ul>
-          <li><a href="mailto:contact@hydrodomus.com">contact@hydrodomus.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p data-i18n="ft.copy">© 2026 Hydrodomus. Tous droits réservés.</p>
-      <div class="footer-badges">
-        <a class="footer-badge" href="https://www.frenchtech-grandparis.com" target="_blank" rel="noopener">
-          <span data-i18n="ft.frenchtech">Membre de</span>
-          <img src="assets/images/logo-frenchtech-grandparis.png" alt="La French Tech Grand Paris">
-        </a>
-        <a class="footer-badge footer-badge-onshape" href="https://www.onshape.com" target="_blank" rel="noopener">
-          <img src="assets/images/onshape-startup-program-badge.png" alt="Onshape Startup Program">
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<a class="pv2-sticky" href="contact?subject=pilot" data-i18n="pr.cta1">Discuter d’un pilote</a>
+</div>
 
 <script src="assets/js/main.js"></script>
-<script>
-  (function () {
-    var b = document.querySelector('.pv2-sticky'), hero = document.querySelector('.pv2-hero'), cta = document.querySelector('.pv2-cta');
-    if (!b || !hero) return;
-    function upd() {
-      var past = hero.getBoundingClientRect().bottom < 0;
-      var atCta = cta && cta.getBoundingClientRect().top < innerHeight;
-      b.classList.toggle('show', past && !atCta);
-    }
-    addEventListener('scroll', upd, { passive: true }); upd();
-  })();
-</script>
+<script src="assets/js/chem-animation.js"></script>
 </body>
 </html>
