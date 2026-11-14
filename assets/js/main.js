@@ -27,6 +27,8 @@ const translations = {
     'ft.copy':    "© 2026 Hydrodomus. Tous droits réservés.",
     'ft.frenchtech': "Membre de",
     "ft.legal": "Mentions légales",
+    "ft.learn": "Apprendre",
+    "ft.calc": "Calculateur",
     "lg.title": "Mentions légales",
     "lg.updated": "Mise à jour : 13 novembre 2026",
 
@@ -145,6 +147,8 @@ const translations = {
     'ft.copy':    '© 2026 Hydrodomus. All rights reserved.',
     'ft.frenchtech': 'Member of',
     "ft.legal": "Legal notice",
+    "ft.learn": "Learn",
+    "ft.calc": "Calculator",
     "lg.title": "Legal notice",
     "lg.updated": "Last updated: 13 November 2026",
 
